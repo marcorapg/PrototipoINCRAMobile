@@ -1,0 +1,21 @@
+<div class="app-timeline">
+  <div class="app-timeline-item" *ngFor="let item of itens">
+
+    <div class="app-timeline-marker">
+      <div
+        class="app-dot"
+        [class.app-dot-empty]="item.pendente">
+      </div>
+    </div>
+
+    <div class="app-timeline-content">
+      <div class="app-data">{{ item.data }}</div>
+
+      <div class="app-texts">
+        <div class="app-acao">{{ item.acao }}</div>
+        <div class="app-descricao">{{ item.descricao }}</div>
+      </div>
+    </div>
+
+  </div>
+</div>

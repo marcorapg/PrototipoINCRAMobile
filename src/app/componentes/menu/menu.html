@@ -1,0 +1,67 @@
+<div class="br-menu" id="main-navigation">
+    <div class="menu-container">
+        <div class="menu-panel">
+            <div class="menu-header">
+                <div class="menu-title"><img
+                        src="https://www.gov.br/incra/pt-br/canais_atendimento/logomarcas/1_INCRA_marca_png.png/@@images/image"
+                        alt="Logo INCRA" width="85" height="14" /><span>Plataforma de Governança Territorial</span>
+                </div>
+                <div class="menu-close">
+                    <button class="br-button circle" type="button" aria-label="Fechar o menu" data-dismiss="menu"><i
+                            class="fas fa-times" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+            <nav class="menu-body" role="tree">
+                <!-- Cobrança -->
+                <div class="menu-folder"><a class="menu-item" href="javascript: void(0)" role="treeitem"><span
+                            class="icon"><i class="fas fa-money-bill" aria-hidden="true"></i></span><span
+                            class="content">Cobrança</span></a>
+                    <ul>
+                        <li><a class="menu-item" href="javascript: void(0)" role="treeitem"><span class="icon"><i
+                                        class="fas fa-triangle-exclamation" aria-hidden="true"></i></span><span
+                                    class="content">Gestão de Inadimplência</span></a>
+                            <ul>
+                                <li><a class="menu-item" [routerLink]="['/cobranca/gestaoinadimplencia']"
+                                        role="treeitem"><span class="icon"><i class="fas fa-receipt"
+                                                aria-hidden="true"></i></span><span class="content">Gestão de
+                                            Inadimplência</span></a></li>
+                                <li><a class="menu-item"
+                                        [routerLink]="['/cobranca/gestaoinadimplencia/processamentolote']"
+                                        role="treeitem"><span class="icon"><i class="fas fa-database"
+                                                aria-hidden="true"></i></span><span class="content">Processamento em
+                                            lote</span></a></li>
+                                <li><a class="menu-item"
+                                        [routerLink]="['/cobranca/gestaoinadimplencia/painelgerencial']"
+                                        role="treeitem"><span class="icon"><i class="fas fa-chart-pie"
+                                                aria-hidden="true"></i></span><span class="content">Painel
+                                            Gerencial</span></a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Central de notificações -->
+                <div class="menu-folder"><a class="menu-item" href="javascript: void(0)" role="treeitem"><span
+                            class="icon"><i class="fas fa-inbox" aria-hidden="true"></i></span><span
+                            class="content">Central de Notificações</span></a>
+                    <ul>
+                        <li><a class="menu-item" [routerLink]="['centralnotificacoes/gestaonotificacao']"
+                                role="treeitem"><span class="icon"><i class="fas fa-list-check"
+                                        aria-hidden="true"></i></span><span class="content">Gestão de
+                                    Notificações</span></a></li>
+                        <li><a class="menu-item" [routerLink]="['centralnotificacoes/gestaotemplate']"
+                                role="treeitem"><span class="icon"><i class="fas fa-clone"
+                                        aria-hidden="true"></i></span><span class="content">Gestão de
+                                    Templates</span></a></li>
+                        <li><a class="menu-item" [routerLink]="['centralnotificacoes/gestaoenvio']"
+                                role="treeitem"><span class="icon"><i class="fas fa-message"
+                                        aria-hidden="true"></i></span><span class="content">Gestão de
+                                    Envio de Notificações</span></a></li>                                    
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        <div class="menu-scrim" data-dismiss="menu" tabindex="0"></div>
+    </div>
+</div>

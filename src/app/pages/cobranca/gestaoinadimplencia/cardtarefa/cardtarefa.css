@@ -1,0 +1,59 @@
+.br-card {
+  border: none;
+  border-radius: 6px;
+  background-color: #f3f4f6; /* cinza claro */
+  padding: 2px;
+  position: relative;
+}
+
+/* barra lateral azul */
+.br-card::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0px;
+  bottom: 0px;
+  width: 4px;
+  background-color: #1351b4;
+  border-radius: 4px;
+}
+
+/* header (PASSO X DE Y) */
+.card-header {
+  font-size: 12px;
+  font-weight: 600;
+  color: #1351b4;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+/* título principal */
+.card-content h5 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #333;
+}
+
+/* descrição */
+.card-content p {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 12px;
+}
+
+/* estado ativo */
+.card-ativo {
+  background-color: #e8f0ff;
+}
+
+/* estado desabilitado */
+.card-desabilitado {
+  opacity: 0.5;
+}
+
+/* botões (ajuste opcional para ficar igual imagem) */
+.br-button {
+  border-radius: 20px;
+  font-weight: 500;
+}

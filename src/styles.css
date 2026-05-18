@@ -1,0 +1,28 @@
+/* You can add global styles to this file, and also import other style files */
+@import 'quill/dist/quill.core.css';
+@import 'quill/dist/quill.snow.css';
+
+.editor-full {
+  width: 100%;
+}
+
+.editor-full .ql-container {
+  height: 350px;      /* ~10 linhas */
+}
+
+.editor-full .ql-editor {
+  height: 100%;
+  overflow-y: auto;
+}
+
+
+.editor-rodape {
+  width: 100%;
+}
+.editor-rodape .ql-container {
+  height: 80px;      /* ~10 linhas */
+}
+.editor-rodape .ql-editor {
+  height: 100%;
+  overflow-y: auto;
+}

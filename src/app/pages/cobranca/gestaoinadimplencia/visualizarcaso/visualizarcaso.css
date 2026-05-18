@@ -1,0 +1,110 @@
+.br-card {
+  border-radius: 8px;
+}
+
+.card-content {
+  padding: 16px;
+}
+
+/* TÍTULOS (labels) */
+.label {
+  font-size: 14px;        /* aumentado */
+  font-weight: 700;       /* negrito */
+  color: #333;
+  display: block;
+  margin-bottom: 4px;
+  letter-spacing: 0.3px;  /* leve melhoria visual */
+}
+
+/* VALORES */
+p {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.br-tag.danger {
+  background-color: #d32f2f;
+  color: #fff;
+}
+
+.br-tag.warning {
+  background-color: #f9a825;
+  color: #fff;
+}
+
+.gap-2 {
+  gap: 8px;
+}
+
+
+
+.container-lateral {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 16px;
+}
+
+.col-esquerda {
+  margin: 0;
+  padding: 0;
+  width: 60%;
+}
+
+.col-direita {
+  margin: 0;
+  padding: 0;
+  width: 40%;
+}
+
+
+
+/* Débitos Vinculados ao Caso */
+
+/* Ajuste do header */
+.card-header {
+  border-bottom: 1px solid #e0e0e0;
+  padding: 12px 16px;
+}
+
+/* Espaçamento da tabela */
+.br-table td,
+.br-table th {
+  vertical-align: middle;
+}
+
+/* Tag vermelha mais próxima da imagem */
+.br-tag.danger {
+  background-color: #e60000;
+  color: #fff;
+  border-radius: 999px;
+  padding: 4px 12px;
+  font-size: 12px;
+}
+
+/* Rodapé */
+tfoot td {
+  background-color: #f8f8f8;
+}
+
+
+
+
+/* Card header */
+
+.card-header {
+  display: flex;
+  align-items: center; /* alinhamento vertical */
+  gap: 20px;
+}
+
+.card-header i {
+  font-size: 1.8rem; /* ajuste conforme necessário */
+  display: flex;
+  align-items: center; /* garante alinhamento interno do ícone */
+}
+
+.card-header h3 {
+  margin: 0; /* remove desalinhamento causado por margem padrão */
+}

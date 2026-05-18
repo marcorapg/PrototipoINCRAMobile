@@ -1,0 +1,103 @@
+<div class="br-card">
+    <div class="card-header">
+        <i class="fas fa-robot text-warning mr-1"></i>
+        <h3 class="mb-0">Assistente de tarefas</h3>
+    </div>
+    <br-divider></br-divider>
+    <div class="card-content">
+
+        <br-message is-inline auto-remove show-icon aria-label="Mensagem do aria-label para acessibilidade">
+            <span>Você está na etapa de <strong>Prazo defesa/pagamento</strong>. Siga os passos abaixo para
+                concluir.</span>
+        </br-message>
+
+        <app-cardtarefa [titulo]="'Houve defesa?'" [passo]="1" [total]="stepnumber"
+            [ativo]="isAtivo(0)" [concluido]="steps[0].concluido">
+
+            <div class="col-12">
+                <br-radio name="houveDefesa" value="sim" (checkedChange)="onRadioChange('sim', $event)">
+                    Sim
+                </br-radio>
+
+                <br-radio name="houveDefesa" value="nao" (checkedChange)="onRadioChange('nao', $event)">
+                    Não
+                </br-radio>
+            </div>
+
+            <button *ngIf="isAtivo(0)" class="br-button primary mt-3" (click)="concluirEtapa(0)">
+                Concluir
+            </button>            
+        </app-cardtarefa>
+
+        <app-cardtarefa [titulo]="'Recebimento'" [passo]="2" [total]="stepnumber" [ativo]="isAtivo(1)"
+            [concluido]="steps[1].concluido">
+
+            <div class="col-6">
+                <br-datetime-picker mode="date"></br-datetime-picker>
+            </div>
+
+            <button *ngIf="isAtivo(1)" class="br-button primary" (click)="concluirEtapa(1)">
+                Concluir
+            </button>
+
+        </app-cardtarefa>
+
+        <app-cardtarefa [titulo]="'Data Defesa ao chefe da D'" [passo]="3" [total]="stepnumber" [ativo]="isAtivo(2)"
+            [concluido]="steps[2].concluido">
+
+            <div class="col-6">
+                <br-datetime-picker mode="date"></br-datetime-picker>
+            </div>
+
+            <button *ngIf="isAtivo(2)" class="br-button primary mt-3" (click)="concluirEtapa(2)">
+                Concluir
+            </button>
+
+        </app-cardtarefa>
+
+        <app-cardtarefa [titulo]="'Número do processo SEI'" [passo]="4" [total]="stepnumber" [ativo]="isAtivo(3)"
+            [concluido]="steps[3].concluido">
+
+            <div class="col-6">
+                <br-input density="small">
+                </br-input>
+            </div>
+
+            <button *ngIf="isAtivo(3)" class="br-button primary mt-3" (click)="concluirEtapa(3)">
+                Concluir
+            </button>
+
+        </app-cardtarefa>
+
+        <app-cardtarefa [titulo]="'Situação Defesa'" [passo]="5" [total]="stepnumber" [ativo]="isAtivo(4)"
+            [concluido]="steps[4].concluido">
+
+            <div class="col-6">
+                <br-select show-search-icon placeholder="Selecione uma opção" options='[
+                    { "label": "Deferido", "value": "1", "selected": false },
+                    { "label": "Indeferido", "value": "2", "selected": false }]'>
+                </br-select>
+            </div>
+
+            <button *ngIf="isAtivo(4)" class="br-button primary" (click)="concluirEtapa(4)">
+                Concluir
+            </button>
+
+        </app-cardtarefa>
+
+        <div class="d-flex justify-content-between mt-3">
+
+            <button class="br-button secondary" (click)="voltarEtapa()"
+                [disabled]="etapaAtual === 0 && !todasConcluidas()">
+                <i class="fas fa-arrow-left"></i>
+                Voltar passo
+            </button>
+
+            <button class="br-button primary" [disabled]="!todasConcluidas()" (click)="avancarFase()">
+                Avançar Fase
+            </button>
+
+        </div>
+
+    </div>
+</div>

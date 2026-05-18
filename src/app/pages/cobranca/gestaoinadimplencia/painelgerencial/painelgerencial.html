@@ -1,0 +1,474 @@
+<app-breadcrumb [items]="[
+    { label: 'Página inicial', url: '/' },
+    { label: 'Cobrança', url: '/cobranca/' },
+    { label: 'Gestão de Inadimplência', url: '/cobranca/gestaoinadimplencia' },
+    { label: 'Painel Gerencial' }
+  ]">
+</app-breadcrumb>
+
+<h1>Painel Gerencial</h1>
+
+<br-tab>
+  <br-tab-item tab-item-title="Visão Geral" icon="fa-eye" is-active="true">
+    <div class="container govbr-dashboard">
+
+      <!-- CARDS RESUMO -->
+      <div class="grid-cards">
+        <div class="br-card resumo">
+          <div class="numero azul">247</div>
+          <div class="label">Total de Casos Ativos</div>
+          <div class="sub">em todas as SRs</div>
+        </div>
+
+        <div class="br-card resumo">
+          <div class="numero vermelho">18</div>
+          <div class="label">Risco de Prescrição</div>
+          <div class="sub">&lt; 6 meses</div>
+        </div>
+
+        <div class="br-card resumo">
+          <div class="numero amarelo">42</div>
+          <div class="label">Prazos Expirando</div>
+          <div class="sub">&lt; 15 dias na etapa atual</div>
+        </div>
+
+        <div class="br-card resumo">
+          <div class="numero verde">89</div>
+          <div class="label">Concluídos (2025)</div>
+          <div class="sub">inscritos em dívida ativa</div>
+        </div>
+
+        <div class="br-card resumo">
+          <div class="numero azul">R$ 1.8M</div>
+          <div class="label">Valor Total em Cobrança</div>
+          <div class="sub">débitos atualizados</div>
+        </div>
+      </div>
+
+      <!-- DISTRIBUIÇÃO -->
+      <div class="br-card painel">
+        <div class="card-header">📊 <strong>Distribuição de Casos por Fase Processual</strong></div>
+
+        <div class="barra-item">
+          <span>1ª Notificação</span>
+          <div class="barra">
+            <div class="fill vermelho" style="width:28%">28%</div>
+          </div>
+          <b>69</b>
+        </div>
+
+        <div class="barra-item">
+          <span>Prazo de Defesa</span>
+          <div class="barra">
+            <div class="fill amarelo" style="width:14%">14%</div>
+          </div>
+          <b>35</b>
+        </div>
+
+        <div class="barra-item">
+          <span>Decisão Administrativa</span>
+          <div class="barra">
+            <div class="fill azul" style="width:10%">10%</div>
+          </div>
+          <b>25</b>
+        </div>
+
+        <div class="barra-item">
+          <span>2ª Notificação</span>
+          <div class="barra">
+            <div class="fill azul" style="width:12%">12%</div>
+          </div>
+          <b>30</b>
+        </div>
+
+        <div class="barra-item">
+          <span>Recurso</span>
+          <div class="barra">
+            <div class="fill azul" style="width:7%">7%</div>
+          </div>
+          <b>17</b>
+        </div>
+
+        <div class="barra-item">
+          <span>Trânsito em Julgado</span>
+          <div class="barra">
+            <div class="fill verde" style="width:8%">8%</div>
+          </div>
+          <b>20</b>
+        </div>
+
+        <div class="barra-item">
+          <span>Notificação Final</span>
+          <div class="barra">
+            <div class="fill amarelo" style="width:11%">11%</div>
+          </div>
+          <b>27</b>
+        </div>
+
+        <div class="barra-item">
+          <span>Dívida Ativa / CADIN</span>
+          <div class="barra">
+            <div class="fill verde" style="width:10%">10%</div>
+          </div>
+          <b>24</b>
+        </div>
+      </div>
+
+      <!-- GRID INFERIOR -->
+      <div class="grid-inferior">
+
+        <!-- TABELA -->
+        <div class="br-card painel">
+          <div class="card-header">🏢 <strong>Casos por Superintendência (Top 5)</strong></div>
+
+          <table class="br-table">
+            <thead>
+              <tr>
+                <th>SR</th>
+                <th>Ativos</th>
+                <th>Prescrição &lt;6m</th>
+                <th>Concluídos</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>SR-12 (Marabá)</strong></td>
+                <td>47</td>
+                <td><span class="badge critico">5</span></td>
+                <td>22</td>
+              </tr>
+              <tr>
+                <td><strong>SR-01 (Belém)</strong></td>
+                <td>38</td>
+                <td><span class="badge critico">3</span></td>
+                <td>15</td>
+              </tr>
+              <tr>
+                <td><strong>SR-06 (BH)</strong></td>
+                <td>35</td>
+                <td><span class="badge aviso">2</span></td>
+                <td>18</td>
+              </tr>
+              <tr>
+                <td><strong>SR-27 (Marabá II)</strong></td>
+                <td>31</td>
+                <td><span class="badge critico">4</span></td>
+                <td>12</td>
+              </tr>
+              <tr>
+                <td><strong>SR-21 (Araguaína)</strong></td>
+                <td>28</td>
+                <td><span class="badge aviso">1</span></td>
+                <td>10</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- GARGALOS -->
+        <div class="br-card painel">
+          <div class="card-header">🚧 <strong>Gargalos Operacionais</strong></div>
+
+          <div class="barra-item">
+            <span>Aguard. emissão notificação</span>
+            <div class="barra">
+              <div class="fill vermelho" style="width:65%">65%</div>
+            </div>
+            <b>42</b>
+          </div>
+
+          <div class="barra-item">
+            <span>Sem nº SEI registrado</span>
+            <div class="barra">
+              <div class="fill amarelo" style="width:30%">30%</div>
+            </div>
+            <b>19</b>
+          </div>
+
+          <div class="barra-item">
+            <span>Decisão pendente chefia</span>
+            <div class="barra">
+              <div class="fill azul" style="width:22%">22%</div>
+            </div>
+            <b>14</b>
+          </div>
+
+          <div class="barra-item">
+            <span>Recurso sem análise SR/O</span>
+            <div class="barra">
+              <div class="fill azul" style="width:12%">12%</div>
+            </div>
+            <b>8</b>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </br-tab-item>
+
+  <br-tab-item tab-item-title="Risco de Prescrição" icon="fa-exclamation-triangle">
+    <div class="container govbr-prescricao">
+
+      <!-- CARDS RESUMO -->
+      <div class="resumo-cards">
+        <div class="br-card resumo-card critico">
+          <div class="numero">3</div>
+          <div class="descricao">Crítico (&lt; 3 meses)</div>
+          <div class="sub">AÇÃO IMEDIATA NECESSÁRIA</div>
+        </div>
+
+        <div class="br-card resumo-card alto">
+          <div class="numero">7</div>
+          <div class="descricao">Alto (&lt; 6 meses)</div>
+          <div class="sub">Prioridade alta</div>
+        </div>
+
+        <div class="br-card resumo-card medio">
+          <div class="numero">15</div>
+          <div class="descricao">Médio (&lt; 12 meses)</div>
+          <div class="sub">Monitoramento contínuo</div>
+        </div>
+
+        <div class="br-card resumo-card prescrito">
+          <div class="numero">2</div>
+          <div class="descricao">Prescritos</div>
+          <div class="sub">Apuração de responsabilidade</div>
+        </div>
+      </div>
+
+      <!-- ALERTA -->
+      <div class="br-message danger alerta">
+        <div class="content">
+          <strong>ATENÇÃO:</strong>
+          Notificação deve ser expedida em tempo hábil para constituir e inscrever a
+          dívida, sob pena de prescrição e apuração de responsabilidade. Os casos críticos abaixo exigem ação imediata.
+        </div>
+      </div>
+
+      <!-- TABELA -->
+      <div class="br-card tabela-card">
+        <div class="card-header">
+          <strong>⚠ Casos com Risco de Prescrição — Detalhamento</strong>
+        </div>
+
+        <table class="br-table">
+          <thead>
+            <tr>
+              <th>Caso</th>
+              <th>Beneficiário</th>
+              <th>SR</th>
+              <th>Fase Atual</th>
+              <th>Vencimento Mais Antigo</th>
+              <th>Prescrição em</th>
+              <th>Risco</th>
+              <th>Ação</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="linha critico">
+              <td>IND-2025-0042</td>
+              <td>Pedro Alcântara Silva</td>
+              <td>SR-12</td>
+              <td>1ª Notificação</td>
+              <td>05/10/2015</td>
+              <td>67 dias</td>
+              <td><span class="tag critico">Crítico</span></td>
+              <td><button class="br-button danger small">Abrir</button></td>
+            </tr>
+
+            <tr class="linha critico">
+              <td>IND-2024-0131</td>
+              <td>Antônio Bezerra Lima</td>
+              <td>SR-12</td>
+              <td>Notificação Final</td>
+              <td>12/03/2016</td>
+              <td>82 dias</td>
+              <td><span class="tag critico">Crítico</span></td>
+              <td><button class="br-button danger small">Abrir</button></td>
+            </tr>
+
+            <tr class="linha critico">
+              <td>IND-2024-0099</td>
+              <td>Rosa Maria Oliveira</td>
+              <td>SR-01</td>
+              <td>2ª Notificação</td>
+              <td>22/06/2016</td>
+              <td>89 dias</td>
+              <td><span class="tag critico">Crítico</span></td>
+              <td><button class="br-button danger small">Abrir</button></td>
+            </tr>
+
+            <tr class="linha alto">
+              <td>IND-2024-0155</td>
+              <td>Francisca Maria dos Santos</td>
+              <td>SR-12</td>
+              <td>Trânsito em Julgado</td>
+              <td>10/08/2016</td>
+              <td>4 meses</td>
+              <td><span class="tag alto">Alto</span></td>
+              <td><button class="br-button warning small">Abrir</button></td>
+            </tr>
+
+            <tr class="linha alto">
+              <td>IND-2024-0102</td>
+              <td>Sebastião Ribeiro Neto</td>
+              <td>SR-12</td>
+              <td>CADIN</td>
+              <td>01/11/2016</td>
+              <td>5 meses</td>
+              <td><span class="tag alto">Alto</span></td>
+              <td><button class="br-button warning small">Abrir</button></td>
+            </tr>
+
+            <tr class="linha medio">
+              <td>IND-2024-0198</td>
+              <td>Marlene Amorim Silveira</td>
+              <td>SR-12</td>
+              <td>2ª Notificação</td>
+              <td>15/01/2017</td>
+              <td>10 meses</td>
+              <td><span class="tag medio">Médio</span></td>
+              <td><button class="br-button primary small">Abrir</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- INFO -->
+      <div class="br-message info rodape">
+        <div class="content">
+          <strong>Cálculo de Prescrição:</strong>
+          O prazo base é de <b>5 anos</b> após o vencimento. Após o recebimento da 1ª notificação, calcula-se <b>3
+            anos</b>. Adota-se sempre a data mais longa entre os dois cálculos.
+        </div>
+      </div>
+
+    </div>
+  </br-tab-item>
+
+  <br-tab-item tab-item-title="Qualidade Processual" icon="fa-hourglass-end">
+    <div class="container govbr-inconsistencias">
+
+      <!-- CARDS SUPERIORES -->
+      <div class="grid-topo">
+
+        <!-- INCONSISTÊNCIAS -->
+        <div class="br-card painel">
+          <div class="card-header">
+            🔎 <strong>Inconsistências Identificadas</strong>
+          </div>
+
+          <ul class="lista status-erro">
+            <li>
+              <span>Casos sem Número SEI registrado</span>
+              <b class="valor erro">19</b>
+            </li>
+            <li>
+              <span>Notificações sem comprovante de recebimento</span>
+              <b class="valor erro">12</b>
+            </li>
+            <li>
+              <span>Casos com etapas fora de ordem</span>
+              <b class="valor erro">3</b>
+            </li>
+            <li>
+              <span>Decisões sem decisão registrada &gt;60d</span>
+              <b class="valor erro">7</b>
+            </li>
+            <li>
+              <span>CADIN: prazo 75 dias vencido sem inscrição</span>
+              <b class="valor erro">2</b>
+            </li>
+          </ul>
+        </div>
+
+        <!-- CONFORMIDADE -->
+        <div class="br-card painel">
+          <div class="card-header">
+            ✅ <strong>Indicadores de Conformidade</strong>
+          </div>
+
+          <ul class="lista status-ok">
+            <li>
+              <span>Casos com fluxo 100% regular</span>
+              <b class="valor ok">198</b>
+            </li>
+            <li>
+              <span>Documentos SEI completos</span>
+              <b class="valor ok">228</b>
+            </li>
+            <li>
+              <span>Notificações dentro do prazo</span>
+              <b class="valor ok">215</b>
+            </li>
+            <li>
+              <span>Certidões emitidas corretamente</span>
+              <b class="valor ok">89</b>
+            </li>
+            <li>
+              <span>Taxa de conformidade geral</span>
+              <b class="valor ok">80,2%</b>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- TABELA -->
+      <div class="br-card tabela-card">
+        <div class="card-header">
+          📋 <strong>Detalhamento — Casos Sem Número SEI</strong>
+        </div>
+
+        <table class="br-table">
+          <thead>
+            <tr>
+              <th>Caso</th>
+              <th>Beneficiário</th>
+              <th>SR</th>
+              <th>Fase Atual</th>
+              <th>Etapa sem SEI</th>
+              <th>Dias Pendente</th>
+              <th>Ação</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td><strong>IND-2025-0038</strong></td>
+              <td>Raimundo Nonato de Jesus</td>
+              <td>SR-12</td>
+              <td>1ª Notificação</td>
+              <td>Abertura do Caso</td>
+              <td><span class="badge aviso">15</span></td>
+              <td><button class="br-button primary small">Regularizar</button></td>
+            </tr>
+
+            <tr>
+              <td><strong>IND-2024-0176</strong></td>
+              <td>José Carlos Pereira</td>
+              <td>SR-12</td>
+              <td>Recurso</td>
+              <td>2ª Notificação</td>
+              <td><span class="badge critico">42</span></td>
+              <td><button class="br-button primary small">Regularizar</button></td>
+            </tr>
+
+            <tr>
+              <td><strong>IND-2025-0051</strong></td>
+              <td>Maria José da Conceição</td>
+              <td>SR-12</td>
+              <td>1ª Notificação</td>
+              <td>Abertura do Caso</td>
+              <td><span class="badge aviso">8</span></td>
+              <td><button class="br-button primary small">Regularizar</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </br-tab-item>
+</br-tab>

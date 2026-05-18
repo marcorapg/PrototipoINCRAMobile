@@ -1,0 +1,55 @@
+.cell-center {
+  text-align: center;
+}
+
+.pagination-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  border-bottom: 1px solid #ddd;
+}
+
+/* BLOCO ESQUERDA */
+.pagination-left {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* CENTRO */
+.pagination-center {
+  font-size: 14px;
+  color: #555;
+}
+
+/* DIREITA */
+.pagination-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* PAGINAÇÃO INLINE */
+.br-pagination.inline {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* BOTÕES */
+.br-button.circle {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+
+.br-button.active {
+  background-color: #1351b4;
+  color: #fff;
+}
+
+/* ÍCONES */
+.icon {
+  font-size: 12px;
+}

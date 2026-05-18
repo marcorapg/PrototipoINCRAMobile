@@ -1,0 +1,60 @@
+/* Card header */
+
+.card-header {
+  display: flex;
+  align-items: center; /* alinhamento vertical */
+  gap: 20px;
+}
+
+.card-header i {
+  font-size: 1.8rem; /* ajuste conforme necessário */
+  display: flex;
+  align-items: center; /* garante alinhamento interno do ícone */
+}
+
+.card-header h3 {
+  margin: 0; /* remove desalinhamento causado por margem padrão */
+}
+
+
+
+/* Container */
+.checklist-container {
+  width: 100%;
+  max-width: 420px;
+}
+
+/* Título */
+.checklist-title {
+  font-weight: 600;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  color: #333;
+}
+
+/* Lista */
+.checklist-list {
+  border-top: 1px solid #e0e0e0;
+}
+
+/* Item */
+.checklist-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 4px;
+  border-bottom: 1px solid #e0e0e0;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* Checkbox */
+.checklist-item input[type="checkbox"] {
+  cursor: pointer;
+}
+
+/* Último item sem borda */
+.checklist-item:last-child {
+  border-bottom: none;
+}

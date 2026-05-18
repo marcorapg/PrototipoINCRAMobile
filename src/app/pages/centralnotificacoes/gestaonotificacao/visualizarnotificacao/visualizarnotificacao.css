@@ -1,0 +1,93 @@
+/* Reset básico para garantir largura total */
+body {
+    margin: 0;
+}
+
+/* Container principal */
+.app-container {
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    gap: 16px;
+}
+
+/* Colunas */
+.app-left {
+    width: 30%;
+}
+
+.app-right {
+    width: 70%;
+}
+
+/* Card da coluna esquerda */
+.app-card {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 16px;
+
+    display: flex;
+    flex-direction: column;
+    /* empilhamento vertical */
+    gap: 16px;
+}
+
+/* Itens internos */
+.app-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.app-item strong {
+    font-size: 14px;
+    color: #333;
+}
+
+.app-item span {
+    font-size: 14px;
+    color: #666;
+}
+
+
+/* ---------Anexos-------- */
+
+/* Container com deslocamento à direita */
+.app-anexos-container {
+    margin-left: 16px;
+    /* move o bloco para a direita */
+    margin-top: 16px;
+}
+
+/* Título */
+.app-anexos-titulo {
+    font-size: 14px;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+/* Lista */
+.app-anexos {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Item */
+.app-anexo-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Link */
+.app-anexo-link {
+    color: #1976d2;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.app-anexo-link:hover {
+    text-decoration: underline;
+}

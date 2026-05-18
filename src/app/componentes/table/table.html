@@ -1,0 +1,85 @@
+<div class="br-table">
+    <table>
+        <thead>
+            <tr>
+                <th *ngFor="let col of columns" (click)="sort(col)" style="cursor:pointer">
+
+                    {{ col.header }}
+
+                    <span *ngIf="col.sortable">
+
+                        <span *ngIf="sortField !== col.field">⇅</span>
+                        <span *ngIf="sortField === col.field && sortDirection === 'asc'">↑</span>
+                        <span *ngIf="sortField === col.field && sortDirection === 'desc'">↓</span>
+
+                    </span>
+
+                </th>
+                <th *ngIf="actions.length">
+                    Ações
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let row of pagedData">
+                <td *ngFor="let col of columns" [ngClass]="{ 'cell-center': col.center }">
+                    <ng-container *ngIf="col.cellTemplate; else defaultCell">
+                        <ng-container *ngTemplateOutlet="col.cellTemplate; context: { $implicit: row }">
+                        </ng-container>
+                    </ng-container>
+                    <ng-template #defaultCell>
+                        {{ row[col.field] }}
+                    </ng-template>
+                </td>
+                <td *ngIf="actions.length">
+                    <button *ngFor="let action of actions" class="br-button circle small" type="button"
+                        [attr.id]="action.id" [attr.title]="action.tooltip" (click)="executeAction(action,row)">
+                        <i class="fas" [ngClass]="action.icon"></i>
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="pagination-header">
+
+    <!-- Esquerda -->
+    <div class="pagination-left">
+        <span class="label">Exibir</span>
+        <i class="fas fa-chevron-down icon"></i>
+    </div>
+
+
+
+    <!-- Direita (inclui paginação) -->
+
+    <div class="pagination-center">
+        <button class="br-button circle" (click)="prev()" [disabled]="currentPage === 1">
+            ‹
+        </button>
+        <button *ngFor="let p of pages" class="br-button circle" [class.active]="p === currentPage"
+            (click)="changePage(p)">
+            {{ p }}
+        </button>
+        <button class="br-button circle" (click)="next()" [disabled]="currentPage === totalPages">
+            ›
+        </button>
+    </div>
+    <!-- Centro -->
+    <div class="pagination-right">
+        1–20 de 50 itens
+    </div>
+</div>
+
+<!-- <div class="br-pagination mt-3">
+    <button class="br-button circle" (click)="prev()" [disabled]="currentPage === 1">
+        ‹
+    </button>
+    <button *ngFor="let p of pages" class="br-button circle" [class.active]="p === currentPage" (click)="changePage(p)">
+        {{ p }}
+    </button>
+    <button class="br-button circle" (click)="next()" [disabled]="currentPage === totalPages">
+        ›
+    </button>
+</div> -->

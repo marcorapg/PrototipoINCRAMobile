@@ -1,0 +1,106 @@
+<div class="br-card">
+    <div class="card-header">
+        <i class="fas fa-robot text-warning mr-1"></i>
+        <h3 class="mb-0">Assistente de tarefas</h3>
+    </div>
+    <br-divider></br-divider>
+    <div class="card-content">
+
+        <br-message is-inline auto-remove show-icon aria-label="Mensagem do aria-label para acessibilidade">
+            <span>Você está na etapa de <strong>Checklist final</strong>. Siga os passos abaixo para
+                concluir.</span>
+        </br-message>
+
+        <app-cardtarefa [titulo]="'Data mínima para inscrição no CADIN'" [passo]="1" [total]="stepnumber"
+            [ativo]="isAtivo(0)" [concluido]="steps[0].concluido">
+
+            <div class="checklist-container">
+
+                <div class="checklist-title">
+                    <i class="fas fa-clipboard-list mr-2"></i>
+                    Checklist de Juntada SEI
+                </div>
+
+                <div class="checklist-list">
+
+                    <label class="checklist-item">
+                        <input type="checkbox" class="br-checkbox" checked />
+                        <span>Abertura do processo SEI</span>
+                    </label>
+
+                    <label class="checklist-item">
+                        <input type="checkbox" class="br-checkbox" checked />
+                        <span>Relatório de inadimplência do SNCCI</span>
+                    </label>
+
+                    <label class="checklist-item">
+                        <input type="checkbox" class="br-checkbox" />
+                        <span>Notificação (Anexo VII ou VIII)</span>
+                    </label>
+
+                    <label class="checklist-item">
+                        <input type="checkbox" class="br-checkbox" />
+                        <span>Comprovante de recebimento (AR/Edital)</span>
+                    </label>
+
+                    <label class="checklist-item">
+                        <input type="checkbox" class="br-checkbox" />
+                        <span>Decisão Administrativa</span>
+                    </label>
+
+                    <label class="checklist-item">
+                        <input type="checkbox" class="br-checkbox" />
+                        <span>2ª Notificação (Anexo IX a XII)</span>
+                    </label>
+
+                    <label class="checklist-item">
+                        <input type="checkbox" class="br-checkbox" />
+                        <span>Recurso (se houver)</span>
+                    </label>
+
+                    <label class="checklist-item">
+                        <input type="checkbox" class="br-checkbox" />
+                        <span>Decisão Recursal</span>
+                    </label>
+
+                    <label class="checklist-item">
+                        <input type="checkbox" class="br-checkbox" />
+                        <span>Certidão de Trânsito em Julgado</span>
+                    </label>
+
+                    <label class="checklist-item">
+                        <input type="checkbox" class="br-checkbox" />
+                        <span>Notificação Art. 34 (Anexo XV/XVI)</span>
+                    </label>
+
+                    <label class="checklist-item">
+                        <input type="checkbox" class="br-checkbox" />
+                        <span>Formulário de Pré-cadastro Dívida Ativa</span>
+                    </label>
+
+                </div>
+
+            </div>
+
+            <button *ngIf="isAtivo(0)" class="br-button primary" (click)="concluirEtapa(0)">
+                Concluir
+            </button>
+
+        </app-cardtarefa>
+
+        <div class="d-flex justify-content-between mt-3">
+
+            <button class="br-button secondary" (click)="voltarEtapa()"
+                [disabled]="etapaAtual === 0 && !todasConcluidas()">
+                <i class="fas fa-arrow-left"></i>
+                Voltar passo
+            </button>
+
+            <button class="br-button primary" [disabled]="!todasConcluidas()" (click)="avancarFase()">
+                Avançar Fase
+            </button>
+
+        </div>
+
+    </div>
+</div>

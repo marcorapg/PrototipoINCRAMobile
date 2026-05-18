@@ -1,0 +1,133 @@
+<app-breadcrumb [items]="[
+    { label: 'Página inicial', url: '/' },
+    { label: 'Cobrança', url: '/cobranca/' },
+    { label: 'Gestão de Inadimplência', url: '/cobranca/gestaoinadimplencia' },
+    { label: 'Visualizar Caso' }
+  ]">
+</app-breadcrumb>
+
+<h1>Visualizar Caso</h1>
+
+<div class="br-card mb-3">
+    <div class="card-content">
+
+        <!-- Header -->
+        <div class="d-flex justify-content-between align-items-center mb-3">
+
+            <div class="d-flex align-items-center gap-2">
+                <i class="fas fa-folder text-warning" style="font-size: 1.5rem;"></i>
+                <strong style="font-size: 1.5rem;">Caso IND-2025-0042</strong>
+
+                <span class="br-tag ml-2" [ngClass]="getEtapaClasse(fase ?? 1)">
+                    {{ getEtapaDescricao(fase ?? 1) }}
+                </span>
+
+                <span class="br-tag warning ml-2">
+                    <i class="fas fa-exclamation-triangle mr-1"></i>
+                    Risco de Prescrição
+                </span>
+            </div>
+
+            <button class="br-button secondary small" type="button" [routerLink]="['/cobranca/gestaoinadimplencia']">
+
+                <i class="fas fa-arrow-left mr-1"></i>
+                Voltar à Fila
+            </button>
+
+        </div>
+
+        <!-- Conteúdo -->
+        <div class="row">
+
+            <div class="col-sm-3">
+                <span class="label">BENEFICIÁRIO</span>
+                <p>Pedro Alcântara Silva</p>
+            </div>
+
+            <div class="col-sm-3">
+                <span class="label">CPF</span>
+                <p>999.999.999-99</p>
+            </div>
+
+            <div class="col-sm-3">
+                <span class="label">CÓDIGO BENEFICIÁRIO</span>
+                <p>CI999999</p>
+            </div>
+
+            <div class="col-sm-3">
+                <span class="label">SUPERINTENDÊNCIA</span>
+                <p>SR-12 (Marabá)</p>
+            </div>
+
+            <div class="col-sm-3">
+                <span class="label">PROCESSO SEI</span>
+                <p>54260.001234/2025-01</p>
+            </div>
+
+            <div class="col-sm-3">
+                <span class="label">PROJETO DE ASSENTAMENTO</span>
+                <p>PA Sol Nascente</p>
+            </div>
+
+            <div class="col-sm-3">
+                <span class="label">LOTE</span>
+                <p>12</p>
+            </div>
+
+            <div class="col-sm-3">
+                <span class="label">MUNICÍPIO / UF</span>
+                <p>Marabá / PA</p>
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="col-sm-3">
+                <span class="label">PRESCRIÇÃO</span>
+                <p>67 dias</p>
+            </div>
+
+            <div class="col-sm-3">
+                <span class="label">PRAZO ETAPA ATUAL</span>
+                <p>3 dias</p>
+            </div>
+
+            <div class="col-sm-3">
+                <span class="label">VENCIMENTO MAIS ANTIGO</span>
+                <p>05/10/2015</p>
+            </div>
+
+            <div class="col-sm-3">
+                <span class="label">DÉBITO TOTAL</span>
+                <p>R$ 6.000,00</p>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<div class="container-lateral">
+    <div class="col-esquerda">
+        <app-linhatempo [items]="timeline" [etapaAtual]="fase ?? 1"></app-linhatempo>
+    </div>
+
+    <div class="col-direita">
+        <app-fase1 *ngIf="fase === 1" (etapaChange)="onEtapaChange($event)"></app-fase1>
+        <app-faseacompanhamento *ngIf="fase === 2" [etapaInput]="2"
+            (etapaChange)="onEtapaChange($event)"></app-faseacompanhamento>
+        <app-fase2 *ngIf="fase === 3" (etapaChange)="onEtapaChange($event)"></app-fase2>
+        <app-fase3 *ngIf="fase === 4" (etapaChange)="onEtapaChange($event)"></app-fase3>
+        <app-fase4 *ngIf="fase === 5" (etapaChange)="onEtapaChange($event)"></app-fase4>
+        <app-faseacompanhamento *ngIf="fase === 6" [etapaInput]="6"
+            (etapaChange)="onEtapaChange($event)"></app-faseacompanhamento>
+        <app-fase5 *ngIf="fase === 7" (etapaChange)="onEtapaChange($event)"></app-fase5>
+        <app-fase6 *ngIf="fase === 8" (etapaChange)="onEtapaChange($event)"></app-fase6>
+        <app-fase7 *ngIf="fase === 9" (etapaChange)="onEtapaChange($event)"></app-fase7>
+        <app-faseacompanhamento *ngIf="fase === 10" [etapaInput]="10"
+            (etapaChange)="onEtapaChange($event)"></app-faseacompanhamento>
+        <app-fase8 *ngIf="fase === 11" (etapaChange)="onEtapaChange($event)"></app-fase8>
+        <app-fase9 *ngIf="fase === 12" (etapaChange)="onEtapaChange($event)"></app-fase9>
+    </div>
+</div>

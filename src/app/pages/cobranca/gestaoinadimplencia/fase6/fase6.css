@@ -1,0 +1,17 @@
+/* Card header */
+
+.card-header {
+  display: flex;
+  align-items: center; /* alinhamento vertical */
+  gap: 20px;
+}
+
+.card-header i {
+  font-size: 1.8rem; /* ajuste conforme necessário */
+  display: flex;
+  align-items: center; /* garante alinhamento interno do ícone */
+}
+
+.card-header h3 {
+  margin: 0; /* remove desalinhamento causado por margem padrão */
+}

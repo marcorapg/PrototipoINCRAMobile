@@ -1,0 +1,152 @@
+<div class="br-card">
+    <div class="card-header">
+        <i class="fas fa-robot text-warning mr-1"></i>
+        <h3 class="mb-0">Assistente de tarefas</h3>
+    </div>
+    <br-divider></br-divider>
+    <div class="card-content">
+
+        <br-message is-inline auto-remove show-icon aria-label="Mensagem do aria-label para acessibilidade">
+            <span>Você está na etapa de <strong>Acompanhamento do Recebimento de Notificação</strong>. Siga os passos
+                abaixo para concluir.</span>
+        </br-message>
+
+        <app-cardtarefa [titulo]="'Primeira tentativa de notificação'" [passo]="1" [total]="stepnumber"
+            [ativo]="isAtivo(0)" [concluido]="steps[0].concluido">
+
+            <div class="col-12">
+                <label for="enderecoConhecido"> Notificação recebida? </label>
+                <br-radio name="enderecoConhecido" value="sim" (checkedChange)="onRadioChange('sim', $event)">
+                    Sim
+                </br-radio>
+
+                <br-radio name="enderecoConhecido" value="nao" (checkedChange)="onRadioChange('nao', $event)">
+                    Não
+                </br-radio>
+            </div>
+
+            <div class="col-12">
+                <br-datetime-picker placeholder="Data" mode="date" label="Data">
+                </br-datetime-picker>
+            </div>
+
+            <div class="col-12">
+                <br-input density="small" label="Nº documento SEI">
+                </br-input>
+            </div>
+
+            <button *ngIf="isAtivo(0)" class="br-button primary mt-3" (click)="concluirEtapa(0)">
+                Concluir
+            </button>
+
+        </app-cardtarefa>
+
+
+        <app-cardtarefa [titulo]="'Segunda tentativa de notificação'" [passo]="2" [total]="stepnumber"
+            [ativo]="isAtivo(1)" [concluido]="steps[1].concluido">
+
+            <div class="col-12">
+                <label for="enderecoConhecido"> Notificação recebida? </label>
+                <br-radio name="enderecoConhecido" value="sim" (checkedChange)="onRadioChange('sim', $event)">
+                    Sim
+                </br-radio>
+
+                <br-radio name="enderecoConhecido" value="nao" (checkedChange)="onRadioChange('nao', $event)">
+                    Não
+                </br-radio>
+            </div>
+
+            <div class="col-12">
+                <br-datetime-picker placeholder="Data" mode="date" label="Data">
+                </br-datetime-picker>
+            </div>
+
+            <div class="col-12">
+                <br-input density="small" label="Nº documento SEI">
+                </br-input>
+            </div>
+
+            <button *ngIf="isAtivo(1)" class="br-button primary mt-3" (click)="concluirEtapa(1)">
+                Concluir
+            </button>
+
+        </app-cardtarefa>
+
+
+        <app-cardtarefa [titulo]="'Terceira tentativa de notificação'" [passo]="3" [total]="stepnumber"
+            [ativo]="isAtivo(2)" [concluido]="steps[2].concluido">
+
+            <div class="col-12">
+                <label for="enderecoConhecido"> Notificação recebida? </label>
+                <br-radio name="enderecoConhecido" value="sim" (checkedChange)="onRadioChange('sim', $event)">
+                    Sim
+                </br-radio>
+
+                <br-radio name="enderecoConhecido" value="nao" (checkedChange)="onRadioChange('nao', $event)">
+                    Não
+                </br-radio>
+            </div>
+
+            <div class="col-12">
+                <br-datetime-picker placeholder="Data" mode="date" label="Data">
+                </br-datetime-picker>
+            </div>
+
+            <div class="col-12">
+                <br-input density="small" label="Nº documento SEI">
+                </br-input>
+            </div>
+
+            <button *ngIf="isAtivo(2)" class="br-button primary" (click)="concluirEtapa(2)">
+                Concluir
+            </button>
+
+        </app-cardtarefa>
+
+        <app-cardtarefa [titulo]="'Notificação por edital'" [passo]="4" [total]="stepnumber" [ativo]="isAtivo(3)"
+            [concluido]="steps[3].concluido">
+
+            <div class="row" style="display: flex; justify-content: center;">
+                <button class="br-button primary" [disabled]="!isAtivo(3)">
+                    Emitir notificação por edital
+                </button>
+            </div>
+
+            <button *ngIf="isAtivo(3)" class="br-button primary" (click)="concluirEtapa(3)">
+                Concluir
+            </button>
+
+        </app-cardtarefa>
+
+        <app-cardtarefa [titulo]="'Data de publicação'" [passo]="5" [total]="stepnumber" [ativo]="isAtivo(4)"
+            [concluido]="steps[4].concluido">
+
+            <div class="col-12">
+                <br-datetime-picker mode="date" label="Data">
+                </br-datetime-picker>
+            </div>
+
+            <button *ngIf="isAtivo(4)" class="br-button primary" (click)="concluirEtapa(4)">
+                Concluir
+            </button>
+
+        </app-cardtarefa>
+
+
+
+        <div class="d-flex justify-content-between mt-3">
+
+            <button class="br-button secondary" (click)="voltarEtapa()"
+                [disabled]="etapaAtual === 0 && !todasConcluidas()">
+                <i class="fas fa-arrow-left"></i>
+                Voltar passo
+            </button>
+
+            <button class="br-button primary" [disabled]="!todasConcluidas()" (click)="avancarFase()">
+                Avançar Fase
+            </button>
+
+        </div>
+
+    </div>
+</div>

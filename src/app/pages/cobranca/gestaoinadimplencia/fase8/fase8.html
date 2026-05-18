@@ -1,0 +1,159 @@
+<div class="br-card">
+    <div class="card-header">
+        <i class="fas fa-robot text-warning mr-1"></i>
+        <h3 class="mb-0">Assistente de tarefas</h3>
+    </div>
+    <br-divider></br-divider>
+    <div class="card-content">
+
+        <br-message is-inline auto-remove show-icon aria-label="Mensagem do aria-label para acessibilidade">
+            <span>Você está na etapa de <strong>Encaminhamentos para cadastro</strong>. Siga os passos abaixo para
+                concluir.</span>
+        </br-message>
+
+        <app-cardtarefa [titulo]="'Data mínima para inscrição no CADIN'" [passo]="1" [total]="stepnumber"
+            [ativo]="isAtivo(0)" [concluido]="steps[0].concluido">
+
+            <div class="col-6">
+                <br-datetime-picker mode="date"></br-datetime-picker>
+            </div>
+
+            <button *ngIf="isAtivo(0)" class="br-button primary" (click)="concluirEtapa(0)">
+                Concluir
+            </button>
+
+        </app-cardtarefa>
+
+        <app-cardtarefa [titulo]="'Data cadastro prévio sistema Sapiens Dívida'" [passo]="2" [total]="stepnumber"
+            [ativo]="isAtivo(1)" [concluido]="steps[1].concluido">
+
+            <div class="col-6">
+                <br-datetime-picker mode="date"></br-datetime-picker>
+            </div>
+
+            <button *ngIf="isAtivo(1)" class="br-button primary mt-3" (click)="concluirEtapa(1)">
+                Concluir
+            </button>
+
+        </app-cardtarefa>
+
+        <app-cardtarefa [titulo]="'Situação cadastro prévio sistema Sapiens Dívida'" [passo]="3" [total]="stepnumber"
+            [ativo]="isAtivo(2)" [concluido]="steps[2].concluido">
+
+            <div class="col-6">
+                <br-select show-search-icon placeholder="Selecione uma opção" options='[
+                { "label": "Pendente", "value": "1", "selected": true },
+                { "label": "Efetuado", "value": "2", "selected": false }
+                ]'></br-select>
+            </div>
+
+            <button *ngIf="isAtivo(2)" class="br-button primary mt-3" (click)="concluirEtapa(2)">
+                Concluir
+            </button>
+
+        </app-cardtarefa>
+
+
+        <app-cardtarefa [titulo]="'Data Inscrição CADIN'" [passo]="4" [total]="stepnumber" [ativo]="isAtivo(3)"
+            [concluido]="steps[3].concluido">
+
+            <div class="col-6">
+                <br-datetime-picker mode="date"></br-datetime-picker>
+            </div>
+
+            <button *ngIf="isAtivo(3)" class="br-button primary mt-3" (click)="concluirEtapa(3)">
+                Concluir
+            </button>
+
+        </app-cardtarefa>
+
+        <app-cardtarefa [titulo]="'Nº SEI comprovante inscrição CADIN'" [passo]="5" [total]="stepnumber"
+            [ativo]="isAtivo(4)" [concluido]="steps[4].concluido">
+
+            <div class="col-6">
+                <br-input label="Nº SEI da certidão" density="small">
+                </br-input>
+            </div>
+
+            <button *ngIf="isAtivo(4)" class="br-button primary mt-3" (click)="concluirEtapa(4)">
+                Concluir
+            </button>
+
+        </app-cardtarefa>
+
+        <app-cardtarefa [titulo]="'Situação Inscrição CADIN'" [passo]="6" [total]="stepnumber" [ativo]="isAtivo(5)"
+            [concluido]="steps[5].concluido">
+
+            <div class="col-6">
+                <br-select show-search-icon placeholder="Selecione uma opção" options='[
+                { "label": "Pendente", "value": "1", "selected": true },
+                { "label": "Efetuado", "value": "2", "selected": false }
+                ]'></br-select>
+            </div>
+
+            <button *ngIf="isAtivo(5)" class="br-button primary mt-3" (click)="concluirEtapa(5)">
+                Concluir
+            </button>
+
+        </app-cardtarefa>
+
+
+        <app-cardtarefa [titulo]="'Data bloqueio Boleto no SNCCI'" [passo]="7" [total]="stepnumber" [ativo]="isAtivo(6)"
+            [concluido]="steps[6].concluido">
+
+            <div class="col-6">
+                <br-datetime-picker mode="date"></br-datetime-picker>
+            </div>
+
+            <button *ngIf="isAtivo(6)" class="br-button primary mt-3" (click)="concluirEtapa(6)">
+                Concluir
+            </button>
+
+        </app-cardtarefa>
+
+        <app-cardtarefa [titulo]="'Nº SEI comprovante bloqueio Boleto no SNCCI'" [passo]="8" [total]="stepnumber"
+            [ativo]="isAtivo(7)" [concluido]="steps[7].concluido">
+
+            <div class="col-6">
+                <br-input density="small">
+                </br-input>
+            </div>
+
+            <button *ngIf="isAtivo(7)" class="br-button primary mt-3" (click)="concluirEtapa(7)">
+                Concluir
+            </button>
+
+        </app-cardtarefa>
+
+        <app-cardtarefa [titulo]="'Situação bloqueio Boleto no SNCCI'" [passo]="9" [total]="stepnumber"
+            [ativo]="isAtivo(8)" [concluido]="steps[8].concluido">
+
+            <div class="col-6">
+                <br-select show-search-icon placeholder="Selecione uma opção" options='[
+                { "label": "Pendente", "value": "1", "selected": true },
+                { "label": "Efetuado", "value": "2", "selected": false }
+                ]'></br-select>
+            </div>
+
+            <button *ngIf="isAtivo(8)" class="br-button primary mt-3" (click)="concluirEtapa(8)">
+                Concluir
+            </button>
+
+        </app-cardtarefa>
+
+        <div class="d-flex justify-content-between mt-3">
+
+            <button class="br-button secondary" (click)="voltarEtapa()"
+                [disabled]="etapaAtual === 0 && !todasConcluidas()">
+                <i class="fas fa-arrow-left"></i>
+                Voltar passo
+            </button>
+
+            <button class="br-button primary" [disabled]="!todasConcluidas()" (click)="avancarFase()">
+                Avançar Fase
+            </button>
+
+        </div>
+
+    </div>
+</div>

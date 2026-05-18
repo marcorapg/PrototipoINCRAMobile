@@ -1,0 +1,71 @@
+<app-breadcrumb [items]="[
+    { label: 'Página inicial', url: '/' },
+    { label: 'Central de Notificações', url: '/centralnotificacoes/' }
+  ]">
+</app-breadcrumb>
+
+<h3>Central de Notificaões</h3>
+
+<div class="app-card-grid">
+
+    <!-- GESTÃO DE NOTIFICAÇÕES -->
+    <br-card class="app-feature-card">
+
+        <div class="app-feature-icon notificacoes">
+            <i class="fas fa-bell"></i>
+        </div>
+
+        <h4>Gestão de Notificações</h4>
+
+        <p>
+            Gerencie notificações enviadas aos usuários, acompanhe status,
+            ciência, assinaturas e histórico de interações.
+        </p>
+
+        <button class="br-button primary small" type="button" [routerLink]="['/centralnotificacoes/gestaonotificacao']">
+            Acessar
+        </button>
+
+    </br-card>
+
+    <!-- GESTÃO DE ENVIO -->
+    <br-card class="app-feature-card">
+
+        <div class="app-feature-icon envios">
+            <i class="fas fa-paper-plane"></i>
+        </div>
+
+        <h4>Gestão de Envio de Notificações</h4>
+
+        <p>
+            Controle envios em lote, acompanhe processamento, falhas,
+            reenvios e estatísticas operacionais.
+        </p>
+
+        <button class="br-button primary small" type="button"  [routerLink]="['/centralnotificacoes/gestaoenvio']">
+            Acessar
+        </button>
+
+    </br-card>
+
+    <!-- GESTÃO DE TEMPLATES -->
+    <br-card class="app-feature-card">
+
+        <div class="app-feature-icon templates">
+            <i class="fas fa-file-alt"></i>
+        </div>
+
+        <h4>Gestão de Templates</h4>
+
+        <p>
+            Cadastre e mantenha modelos de notificações, mensagens,
+            variáveis dinâmicas e templates por canal.
+        </p>
+
+        <button class="br-button primary small" type="button"  [routerLink]="['/centralnotificacoes/gestaotemplate']">
+            Acessar
+        </button>
+
+    </br-card>
+
+</div>

@@ -1,0 +1,25 @@
+<div class="br-card mt-3 mb-3" [ngClass]="{
+       'card-ativo': ativo,
+       'card-desabilitado': !ativo
+     }">
+
+  <div class="card-header">
+    <span class="text-primary-default text-bold">
+      PASSO {{ passo }} DE {{ total }}
+    </span>
+  </div>
+
+  <div class="card-content">
+
+    <p *ngIf="titulo">{{ titulo }}</p>
+
+    <div>
+      <ng-content></ng-content>
+    </div>
+
+    <div *ngIf="concluido" class="text-success mt-2">
+      ✔ Concluído
+    </div>
+
+  </div>
+</div>

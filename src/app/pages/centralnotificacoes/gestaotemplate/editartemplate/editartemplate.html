@@ -1,0 +1,207 @@
+<app-breadcrumb [items]="[
+    { label: 'Página inicial', url: '/' },
+    { label: 'Central de Notificações', url: '/centralnotificacoes/' },
+    { label: 'Gestão de Templates', url: '/centralnotificacoes/gestaotemplate' },
+    { label: 'Editar de Template', url: '/centralnotificacoes/editartemplate' }
+  ]">
+</app-breadcrumb>
+
+<h1>Editar Template</h1>
+
+
+<br-tab>
+    <br-tab-item tab-item-title="Atributos" icon="fa-list" is-active="true">
+        <h3>Aributos do template</h3>
+        <div class="row">
+            <div class="col-5">
+                <br-input label="Nome do template *" density="medium" [value]="nomeTemplate"></br-input>
+            </div>
+            <div class="col-3">
+                <br-input label="ID do template *" density="medium" [value]="idTemplate"></br-input>
+            </div>
+            <div class="col-3">
+                <br-select label="Serviço" placeholder="Selecione uma opção" options='[
+                        { "label": "Todos", "value": "6", "selected": false },
+                        { "label": "PGT Cobrança", "value": "1", "selected": true },
+                        { "label": "PGT Reforma Agrária", "value": "2", "selected": false },
+                        { "label": "PGT Regularização Fundiária Urbana", "value": "2", "selected": false },
+                        { "label": "PGT Regularização Fundiária Rural", "value": "2", "selected": false }
+                        ]'></br-select>
+            </div>
+            <div class="col-1">
+                <br-switch class="mt-4" label="Ativo"></br-switch>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <br-textarea style="display: block; width: 100%;" label="Descrição" rows="4" density="medium"
+                    [value]="descricaoTemplate"></br-textarea>
+            </div>
+        </div>
+
+        <h3>Tipo de notificação</h3>
+        <div class="radio-group">
+
+            <!-- Opção 1 -->
+            <label class="radio-card">
+                <input type="radio" name="tipo" checked>
+
+                <span class="radio-custom"></span>
+
+                <div class="radio-content">
+                    <div class="radio-title">Simples</div>
+                    <div class="radio-desc">
+                        Mensagem informativa sem necessidade de ação.
+                    </div>
+                </div>
+            </label>
+
+            <!-- Opção 2 -->
+            <label class="radio-card">
+                <input type="radio" name="tipo">
+
+                <span class="radio-custom"></span>
+
+                <div class="radio-content">
+                    <div class="radio-title">Ciência</div>
+                    <div class="radio-desc">
+                        Exige que o usuário confirme a leitura.
+                    </div>
+                </div>
+            </label>
+
+            <!-- Opção 3 -->
+            <label class="radio-card">
+                <input type="radio" name="tipo">
+
+                <span class="radio-custom"></span>
+
+                <div class="radio-content">
+                    <div class="radio-title">Assinatura digital</div>
+                    <div class="radio-desc">
+                        Permite que o usuário assine um documento.
+                    </div>
+                </div>
+            </label>
+
+        </div>
+
+        <h3>Prazo de resposta</h3>
+        <div class="row">
+            <div class="col-2 mt-3">
+                <br-switch label-position="right" [checked]="prazo" (checkedChange)="prazo = $event.detail">Tem prazo
+                    para resposta?</br-switch>
+            </div>
+            <div class="col-2">
+                <label for="numeroDiasResposta">Número de dias para resposta</label>
+                <br-input name="numeroDiasResposta" [value]="numeroDiasResposta" density="medium"
+                    [disabled]="!prazo"></br-input>
+            </div>
+        </div>
+    </br-tab-item>
+
+    <br-tab-item tab-item-title="Variáveis" icon="fa-code">
+
+        <app-editarvariaveis></app-editarvariaveis>
+
+    </br-tab-item>
+
+    <br-tab-item tab-item-title="Template" icon="fa-clone">
+        <h3>Template da Notificação</h3>
+
+        <label class="mt-4">Título da Notificação</label>
+        <br-input [value]="titulo" density="medium"></br-input>
+
+        <label class="mt-4">Corpo da notificação</label>
+        <quill-editor [(ngModel)]="conteudo" theme="snow" class="editor-full">
+        </quill-editor>
+
+        <br-tab>
+            <br-tab-item tab-item-title="Email" icon="fa-envelope" is-active="true">
+                <div class="row mt-4">
+                    <div class="col-12">
+                        <br-switch label-position="right" [checked]="templateEmailAtivo"
+                            (checkedChange)="toggleEditor()">Utilizar template customizado
+                            para este canal</br-switch>
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col-12">
+                        <label for="tituloEmail">Título</label>
+                        <br-input name="tituloEmail" [value]="titulo" density="medium"
+                            [disabled]="!templateEmailAtivo"></br-input>
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col-12">
+                        <label for="tituloEmail">Corpo do email</label>
+                        <quill-editor [(ngModel)]="conteudo" theme="snow" class="editor-full"
+                            (onEditorCreated)="setEditor($event)" [class.quill-disabled]="!templateEmailAtivo">
+                        </quill-editor>
+                    </div>
+                </div>
+            </br-tab-item>
+            <br-tab-item tab-item-title="WhatsApp" icon="fa-whatsapp">
+                <div class="row mt-4">
+                    <div class="col-12">
+                        <br-switch label-position="right" [checked]="templateWhatsAppAtivo"
+                            (checkedChange)="templateWhatsAppAtivo = $event.detail">Utilizar template customizado
+                            para este canal</br-switch>
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col-12">
+                        <label for="mensagemWhatsApp">Mensagem</label>
+                        <br-textarea name="mensagemWhatsApp" [value]="mensagemWhatsApp" density="medium"
+                            [disabled]="!templateWhatsAppAtivo" style="display: block; width: 100%;"
+                            rows="8"></br-textarea>
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col-12">
+                        <label for="imagemWhatsApp">Imagem anexo</label>
+                        <br-upload [disabled]="!templateWhatsAppAtivo"></br-upload>
+                    </div>
+                </div>
+            </br-tab-item>
+            <br-tab-item tab-item-title="SMS" icon="fa-comment">
+                <div class="row mt-4">
+                    <div class="col-12">
+                        <br-switch label-position="right" [checked]="templateSMSAtivo"
+                            (checkedChange)="templateSMSAtivo = $event.detail">Utilizar template customizado
+                            para este canal</br-switch>
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col-12">
+                        <label for="mensagemSMS">Mensagem</label>
+                        <br-textarea name="mensagemSMS" [value]="mensagemSMS" density="medium"
+                            [disabled]="!templateSMSAtivo" style="display: block; width: 100%;" rows="4"></br-textarea>
+                    </div>
+                </div>
+            </br-tab-item>
+        </br-tab>
+    </br-tab-item>
+
+    <br-tab-item tab-item-title="Documentos" icon="fa-file">
+        <app-editardocumentos></app-editardocumentos>
+    </br-tab-item>
+</br-tab>
+
+
+
+
+
+
+<!-- Rodapé -->
+<div class="br-modal-footer d-flex justify-content-end">
+    <br-button emphasis="secondary" [routerLink]="['/centralnotificacoes/gestaotemplate']">
+        <i class="fas fa-arrow-left mr-2"></i>
+        Voltar
+    </br-button>
+
+    <br-button id="saveScrim" emphasis="primary" [routerLink]="['/centralnotificacoes/gestaotemplate']">
+        <i class="fas fa-floppy-disk mr-2"></i>
+        Salvar
+    </br-button>
+</div>

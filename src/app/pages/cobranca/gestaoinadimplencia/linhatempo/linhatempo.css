@@ -1,0 +1,121 @@
+.timeline {
+  position: relative;
+  margin-left: 16px;
+  padding-left: 20px;
+  border-left: 2px solid #d9d9d9;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 24px;
+}
+
+.timeline-marker {
+  position: absolute;
+  left: -34px;
+  top: 0;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #ccc;
+  color: #fff;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.title {
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.meta {
+  font-size: 12px;
+  margin-bottom: 4px;
+}
+
+p {
+  margin: 0;
+  font-size: 13px;
+}
+
+/* estados */
+.done .timeline-marker {
+  background: #2e7d32;
+}
+
+.done .title {
+  color: #2e7d32;
+}
+
+.current .timeline-marker {
+  background: #1565c0;
+}
+
+.current .title {
+  color: #1565c0;
+}
+
+.pending .timeline-marker {
+  background: #bdbdbd;
+}
+
+.pending .title {
+  color: #777;
+}
+
+/* Card header */
+
+.card-header {
+  display: flex;
+  align-items: center; /* alinhamento vertical */
+  gap: 20px;
+}
+
+.card-header i {
+  font-size: 1.8rem; /* ajuste conforme necessário */
+  display: flex;
+  align-items: center; /* garante alinhamento interno do ícone */
+}
+
+.card-header h3 {
+  margin: 0; /* remove desalinhamento causado por margem padrão */
+}
+
+
+
+/* Dados dos processo */
+
+.processo-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px;
+}
+
+.br-card {
+  width: 100%;
+  border-left: 4px solid var(--blue-warm-vivid-70);
+}
+
+.card-header h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.card-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 4px 16px;
+}
+
+.card-content p {
+  margin: 2px 0;
+  font-size: 0.95rem;
+}
+
+.br-tag {
+  font-size: 0.75rem;
+}
