@@ -1,5 +1,5 @@
 {
-  "name": "prototipoincra",
+  "name": "prototipoincramobile",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "deploy": "ng build --base-href https://marcorapg.github.io/PrototipoINCRA/ && npx angular-cli-ghpages --dir=dist/prototipoincra/browser"
+    "deploy": "ng build --base-href /PrototipoINCRAMobile/ && npx angular-cli-ghpages --dir=dist/prototipoincramobile/browser"
   },
   "prettier": {
     "printWidth": 100,

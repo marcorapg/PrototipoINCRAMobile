@@ -17,7 +17,7 @@ declare const core: any;
 })
 
 export class App implements AfterViewInit {
-  protected readonly title = signal('prototipoincra');
+  protected readonly title = signal('prototipoincramobile');
   ngAfterViewInit(): void {
 
     const datetimepickerList = []
