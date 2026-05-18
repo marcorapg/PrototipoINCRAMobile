@@ -1,0 +1,1 @@
+var r=class{static generateUniqueId(t="br"){let o=Date.now().toString(36),n=Math.random().toString(36).substring(2,8);return`${t}-${o}-${n}`}static formatBytes(t,o=2){if(t===0)return"0 Bytes";let n=1024,s=o<0?0:o,e=["Bytes","KB","MB","GB","TB","PB","EB","ZB","YB"],a=Math.floor(Math.log(t)/Math.log(n));return parseFloat((t/Math.pow(n,a)).toFixed(s))+" "+e[a]}};export{r as a};
