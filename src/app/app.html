@@ -1,47 +1,80 @@
-<div class="template-base">
-  <app-header></app-header>
+<div class="app-container">
 
-  <main class="flex-fill mb-5" id="main">
-    <div class="container-fluid">
-      <div class="row">
+  <!-- <header class="topbar">
+    <div class="topbar-left">
 
-        <div class="col-auto">
-          <app-menu></app-menu>
-        </div>
+      <button class="icon-button">
+        <i class="fas fa-bars"></i>
+      </button>
 
-        <div class="col mb-5">        
-
-          <router-outlet></router-outlet>
-
-        </div>
-      </div>
+      <span class="topbar-title">Page title</span>
     </div>
+
+    <div class="topbar-right">
+      <button class="icon-button">
+        <i class="fas fa-bell"></i>
+      </button>
+
+      <button class="icon-button">
+        <i class="fas fa-share-alt"></i>
+      </button>
+
+      <button class="icon-button">
+        <i class="fas fa-search"></i>
+      </button>
+    </div>
+  </header> -->
+
+
+
+  <br-header is-sticky="true" density="small">
+    <br-header-logo slot="logo"
+      src="https://www.gov.br/governodigital/pt-br/estrategias-e-governanca-digital/rede-nacional-de-governo-digital/10passos/biblioteca/logo-govbr.png/@@images/image"></br-header-logo>
+    <span slot="signature">Assinatura</span>
+    <br-button slot="search-icon" shape="circle" density="small" emphasis="tertiary" aria-label="Abrir busca">
+      <br-icon icon-name="fa7-solid:search"></br-icon>
+    </br-button>
+    <br-input slot="search" id="highlight" placeholder="O que você procura?" is-highlight action-label="Buscar">
+      <br-icon slot="action" icon-name="fa-solid:search" aria-hidden="true"></br-icon>
+    </br-input>
+
+
+
+
+    <br-sign-in slot="access" density="small">
+      <br-icon slot="icon" icon-name="fa-solid:user"></br-icon>
+      Olá, Cidadão     
+    </br-sign-in>
+
+
+
+
+
+
+    <span slot="caption">PGT - Aop Cidadão</span>
+    <span slot="subcaption">INCRA</span>
+  </br-header>
+
+
+
+
+
+
+
+  <main class="content">
+
+    <router-outlet></router-outlet>
+
   </main>
 
-  <app-footer></app-footer>
-  <div class="br-cookiebar default d-none" tabindex="-1"></div>
+  <nav class="bottom-nav">
+
+    <a *ngFor="let item of menuItems" href="#" class="nav-item" [class.active]="selectedMenu === item.label"
+      (click)="selectMenu(item.label)">
+      <i [class]="item.icon"></i>
+      <span>{{ item.label }}</span>
+    </a>
+
+  </nav>
+
 </div>
-
-
-
-
-
-<!-- <div class="template-base">
-  <app-header></app-header>
-  <main class="d-flex flex-fill mb-5" id="main">
-    <div class="container-lg d-flex">
-      <div class="row">
-        <app-menu></app-menu>
-        <div class="col mb-5">
-          <app-breadcrumb></app-breadcrumb>
-          <div class="main-content pl-sm-3 mt-4" id="main-content">
-            <h1>Título h1</h1>
-            <router-outlet />
-          </div>
-        </div>
-      </div>
-    </div>
-  </main>
-  <app-footer></app-footer>
-  <div class="br-cookiebar default d-none" tabindex="-1"></div>
-</div> -->

@@ -1,24 +1,17 @@
-import { AfterViewInit, Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { BrHeader, BrIcon, BrButton, BrSignIn, BrInput, BrHeaderLogo } from '@govbr-ds/webcomponents-angular/standalone';
 
 declare const core: any;
 
 @Component({
   selector: 'app-home',
-  imports: [],
+  imports: [FormsModule, CommonModule, BrHeader, BrIcon, BrButton, BrSignIn, BrInput, BrHeaderLogo],
   templateUrl: './home.html',
   styleUrl: './home.css',
 })
 export class Home {
-  
-  estadoSelecionado: string = "";
 
-  estados = [
-    { label: 'Acre', value: 'AC' },
-    { label: 'Alagoas', value: 'AL' },
-    { label: 'Amapá', value: 'AP' },
-    { label: 'Amazonas', value: 'AM' },
-    { label: 'Bahia', value: 'BA' },
-    { label: 'Minas Gerais', value: 'MG' },
-    { label: 'São Paulo', value: 'SP' }
-  ]
+
 }

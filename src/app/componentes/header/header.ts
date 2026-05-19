@@ -1,20 +1,15 @@
-import { AfterViewInit, Component } from '@angular/core';
+import { Component } from '@angular/core';
+import { BrButton, BrHeader, BrHeaderFunction, BrHeaderLink, BrHeaderList, BrHeaderLogo, BrIcon, BrInput, BrSignIn } from '@govbr-ds/webcomponents-angular/standalone';
 
 declare const core: any;
 
 @Component({
   selector: 'app-header',
-  imports: [],
+  imports: [BrHeader, BrIcon, BrButton, BrSignIn, BrInput, BrHeaderLogo],
   templateUrl: './header.html',
   styleUrl: './header.css',
 })
 
-export class Header implements AfterViewInit {
-  ngAfterViewInit(): void {
-    const header = document.querySelector('.br-header');
-    if (header) new core.BRHeader('br-header', header);
+export class Header {
 
-    const menu = document.querySelector('.br-menu');
-    if (menu) new core.BRMenu('br-menu', menu);    
-  }
 }
