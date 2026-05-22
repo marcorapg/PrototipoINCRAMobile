@@ -1,0 +1,58 @@
+.page-header {
+  width: 100%;
+
+  height: 56px;
+
+  background: #1351b4;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 16px;
+
+  color: white;
+
+  box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+}
+
+.page-title {
+  flex: 1;
+color: white;
+  margin: 0 16px;
+
+  font-size: 18px;
+  font-weight: 600;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.header-button {
+  width: 40px;
+  height: 40px;
+
+  border: none;
+  background: transparent;
+
+  color: white;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  cursor: pointer;
+
+  transition: background 0.2s ease;
+}
+
+.header-button:hover {
+  background: rgba(255,255,255,0.12);
+}
+
+.header-button i {
+  font-size: 18px;
+}

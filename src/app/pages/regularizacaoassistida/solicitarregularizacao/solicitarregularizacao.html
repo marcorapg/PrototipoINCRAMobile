@@ -1,0 +1,652 @@
+<app-pageheader title="Solicitar Regularização" backLink="/regularizacaoassistida"></app-pageheader>
+
+<div class="wizard-container">
+
+    <!-- CONTEÚDO -->
+
+    <div class="wizard-content">
+
+        <div *ngIf="step === 0" class="step-size">
+            <div class="card-content">
+                <h1 class="titulo">Solicitar Regularização</h1>
+
+                <p class="descricao mt-3 mb-3">
+                    Aqui você pode solicitar a regularização da sua ocupação em área de assentamento
+                    de forma rápida e segura.
+                </p>
+
+                <div class="info-box">
+                    <h2>Informe o CPF</h2>
+
+                    <p>
+                        Nosso objetivo é facilitar o acesso aos serviços de regularização fundiária,
+                        garantindo mais segurança e transparência para você e sua família.
+                    </p>
+
+                    <div class="campo-cpf">
+                        <label class="br-label" for="cpf">CPF</label>
+
+                        <input id="cpf" class="br-input" style="width: 200px;" type="text" maxlength="14"
+                            placeholder="000.000.000-00" [(ngModel)]="cpfSolicitante" (input)="formatarCpf($event)" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div *ngIf="step === 1" class="step-size">
+            <div class="dados-page">
+
+                <!-- Descrição -->
+                <div class="descricao-topo">
+                    Informe os dados do titular que deseja solicitar a regularização de
+                    ocupação do lote de projeto de assentamento.
+                </div>
+
+                <!-- Dados do solicitante -->
+                <div class="br-card info-card">
+
+                    <div class="card-content">
+
+                        <h2>Dados do Solicitante</h2>
+
+                        <!-- CPF -->
+                        <div class="campo">
+                            <label class="br-label">CPF</label>
+
+                            <div class="cpf-texto">
+                                {{ cpfSolicitante }}
+                            </div>
+                        </div>
+
+                        <!-- Estado Civil -->
+                        <div class="campo">
+                            <br-select show-search-icon label="Estado Civil" placeholder="Selecione o estado civil"
+                                options='[
+                            { "label": "Solteiro(a)", "value": "Solteiro(a)", "selected": false },
+                            { "label": "Casado(a)", "value": "Casado(a)", "selected": false },
+                            { "label": "Divorciado(a)", "value": "Divorciado(a)", "selected": false },
+                            { "label": "Viúvo(a)", "value": "Viúvo(a)", "selected": false },
+                            { "label": "União estável", "value": "União estável", "selected": false }
+                            ]' [value]="estadoCivil" (valueChange)="onEstadoCivilChange($event)">
+                            </br-select>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- Cônjuge -->
+                <div class="br-card info-card" *ngIf="mostrarConjuge">
+
+                    <div class="card-content">
+
+                        <h2>Dados do Cônjuge ou Companheiro(a)</h2>
+
+                        <!-- CPF -->
+                        <div class="campo">
+
+                            <label class="br-label" for="cpfConjuge">
+                                CPF
+                            </label>
+
+                            <div class="cpf-container">
+
+                                <input id="cpfConjuge" class="br-input" style="width: 20px;" type="text" maxlength="14"
+                                    placeholder="000.000.000-00" [(ngModel)]="cpfConjuge"
+                                    (input)="formatarCpfConjuge($event)" />
+
+                                <button class="br-button secondary" type="button" (click)="consultarCpf()">
+                                    Consultar
+                                </button>
+
+                            </div>
+
+                            <!-- Erro -->
+                            <div class="mensagem erro" *ngIf="erroCpf">
+                                <i class="fas fa-exclamation-circle"></i>
+                                {{ erroCpf }}
+                            </div>
+
+                            <!-- Nome -->
+                            <div class="mensagem sucesso" *ngIf="nomeConjuge">
+                                <i class="fas fa-user"></i>
+                                {{ nomeConjuge }}
+                            </div>
+
+                        </div>
+
+                        <!-- Alerta -->
+                        <div class="alerta" *ngIf="cpfConjuge === cpfSolicitante">
+                            <i class="fas fa-exclamation-triangle"></i>
+
+                            CPF igual ao do Solicitante
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div *ngIf="step === 2" class="step-size">
+            <div class="localizar-page">
+
+                <!-- Cabeçalho -->
+                <div class="topo">
+
+                    <div class="titulo-container">
+                        <h1>Localizar Lote</h1>
+
+                        <button class="br-button circle secondary botao-ajuda" type="button">
+                            <i class="fas fa-question"></i>
+                        </button>
+                    </div>
+
+                    <p class="descricao">
+                        Clique no mapa para posicionar o marcador dentro do lote que deseja
+                        solicitar regularização.
+                    </p>
+
+                </div>
+
+                <!-- Mapa -->
+                <div>
+                    <!-- Imagem do mapa -->
+                    <img src="images/mapa-lote.png" alt="Mapa do lote" class="mapa-imagem"
+                        style="object-fit: contain;" />
+                </div>
+
+                <!-- Instrução -->
+                <div class="br-card instrucoes-card">
+
+                    <div class="instrucoes-content">
+
+                        <img src="images/map-marker.png" alt="Localização" class="icone-mapa" />
+
+                        <p>
+                            Clique no mapa para localizar o lote que deseja regularização
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+        <div *ngIf="step === 3" class="step-size">
+            <div class="localizar-page">
+
+                <!-- Cabeçalho -->
+                <div class="topo">
+
+                    <div class="titulo-container">
+                        <h1>Lote Selecionado</h1>
+
+                        <button class="br-button circle secondary botao-ajuda" type="button">
+                            <i class="fas fa-question"></i>
+                        </button>
+                    </div>
+
+                    <p class="descricao">
+                        Confirme se o lote foi selecionado corretamente e os dados do lote.
+                    </p>
+
+                </div>
+
+                <!-- Mapa -->
+                <div>
+                    <!-- Imagem do mapa -->
+                    <img src="images/mapa-lote-selecionado.png" alt="Mapa do lote" class="mapa-imagem"
+                        style="object-fit: contain;" />
+                </div>
+
+                <!-- DAdos do lote -->
+                <div class="br-card card-lote">
+                    <div class="card-content">
+                        <h2 class="titulo-card">Dados do Lote</h2>
+
+                        <div class="campo">
+                            <span class="label">Nome Lote</span>
+                            <span class="valor">
+                                P.A. CONTAGEM – LOTE 12 - Parte 1
+                            </span>
+                        </div>
+
+                        <div class="linha-dupla">
+                            <div class="campo">
+                                <span class="label">Área do Lote Informado</span>
+                                <span class="valor">18,73 ha</span>
+                            </div>
+
+                            <div class="campo">
+                                <span class="label">Município (UF)</span>
+                                <span class="valor">Planaltina (Goiás)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div *ngIf="step === 4" class="step-size">
+            <div class="localizar-page">
+
+                <!-- Cabeçalho -->
+                <div class="topo">
+
+                    <div class="titulo-container">
+                        <h1>Desenho do Lote</h1>
+
+                        <button class="br-button circle secondary botao-ajuda" type="button">
+                            <i class="fas fa-question"></i>
+                        </button>
+                    </div>
+
+                    <p class="descricao">
+                        Desenha no mapa a área do lote ocupado que solicita regularização.
+                    </p>
+
+                </div>
+
+                <!-- Mapa -->
+                <div>
+                    <!-- Imagem do mapa -->
+                    <img src="images/desenho-lote.png" alt="Mapa do lote" class="mapa-imagem"
+                        style="object-fit: contain;" />
+                </div>
+
+            </div>
+        </div>
+
+        <div *ngIf="step === 5" class="step-size">
+            <div class="localizar-page">
+
+                <!-- Cabeçalho -->
+                <div class="topo">
+
+                    <div class="titulo-container">
+                        <h1>Desenho do Lote</h1>
+
+                        <button class="br-button circle secondary botao-ajuda" type="button">
+                            <i class="fas fa-question"></i>
+                        </button>
+                    </div>
+
+                    <p class="descricao">
+                        Desenha no mapa a área do lote ocupado que solicita regularização.
+                    </p>
+
+                </div>
+
+                <!-- Mapa -->
+                <div>
+                    <!-- Imagem do mapa -->
+                    <img src="images/mapa-lote-terminado.png" alt="Mapa do lote" class="mapa-imagem"
+                        style="object-fit: contain;" />
+                </div>
+
+                <!-- DAdos do lote -->
+                <div class="br-card card-lote">
+                    <div class="card-content">
+                        <h2 class="titulo-card">Lote Informado</h2>
+
+                        <div class="linha-dupla">
+                            <div class="campo">
+                                <span class="label">Município (UF)</span>
+                                <span class="valor">Planaltina (Goiás)</span>
+                            </div>
+
+                            <div class="campo">
+                                <span class="label">Área Aproximada do Lote</span>
+                                <span class="valor">18,73 ha</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div *ngIf="step === 6" class="step-size">
+            <div class="localizar-page">
+
+                <!-- Cabeçalho -->
+                <div class="topo">
+                    <div class="titulo-container">
+                        <h1>Resumo da Solicitação</h1>
+                    </div>
+                </div>
+
+                <!-- DAdos do solicitante -->
+                <div class="br-card card-lote">
+                    <div class="card-content">
+                        <h2 class="titulo-card">Dados do Solicitante</h2>
+
+                        <div class="linha-dupla">
+                            <div class="campo">
+                                <span class="label">CPF</span>
+                                <span class="valor">089.833.963-90</span>
+                            </div>
+
+                            <div class="campo">
+                                <span class="label">Estado Civil</span>
+                                <span class="valor">Solteiro</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DAdos do lote -->
+                <div class="br-card card-lote">
+                    <div class="card-content">
+                        <h2 class="titulo-card">Lote Informado</h2>
+
+                        <div class="linha-dupla">
+                            <div class="campo">
+                                <span class="label">Município (UF)</span>
+                                <span class="valor">Planaltina (Goiás)</span>
+                            </div>
+
+                            <div class="campo">
+                                <span class="label">Área Aproximada do Lote</span>
+                                <span class="valor">18,73 ha</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mapa -->
+                <div>
+                    <!-- Imagem do mapa -->
+                    <img src="images/mapa-lote-resumo.png" alt="Mapa do lote" class="mapa-imagem"
+                        style="object-fit: contain;" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+
+    <div class="wizard-footer">
+
+        <button class="br-button secondary btn-cancelar" [routerLink]="['/regularizacaoassistida']">
+            Cencelar
+        </button>
+
+        <div class="footer-actions">
+            <button class="br-button secondary btn-voltar" [disabled]="step === 0" (click)="voltar(step)">
+                Voltar
+            </button>
+
+            <button class="br-button primary btn-avancar" *ngIf="step < 6" (click)="avancar(step)">
+                Avançar
+            </button>
+
+            <button class="br-button primary btn-finalizar" *ngIf="step === 6" (click)="finalizar()">
+                Finalizar
+            </button>
+        </div>
+    </div>
+</div>
+
+<br-scrim [isOpen]="scrimAberto" (brScrimClose)="scrimAberto = false">
+
+    <div class="modal-propriedade">
+
+        <button class="fechar" type="button" (click)="fecharScrim()">
+            <i class="fas fa-times"></i>
+        </button>
+
+        <h2 class="titulo-scrim">
+            Propriedade não localizada
+        </h2>
+
+        <div class="imagem-container">
+            <img src="/images/propriedade-nao-localizada.png" alt="Propriedade não localizada">
+        </div>
+
+        <p class="descricao">
+            A área da propriedade não foi localizada,
+            gostaria de desenhar no mapa?
+        </p>
+
+        <div class="acoes">
+            <button class="br-button secondary" type="button" (click)="fecharScrim()">
+                Não
+            </button>
+
+            <button class="br-button primary" type="button" (click)="avancar(3)">
+                Sim
+            </button>
+        </div>
+
+    </div>
+</br-scrim>
+
+<br-scrim [isOpen]="scrimSucesso" (brScrimClose)="scrimSucesso = false">
+
+    <!-- MODAL -->
+    <div class="br-modal regularizacao-sucesso-modal-container" aria-modal="true">
+
+        <!-- HEADER -->
+        <div class="regularizacao-sucesso-modal-header">
+
+            <div class="regularizacao-sucesso-modal-title">
+                Envio com sucesso!
+            </div>
+
+            <button class="br-button circle small secondary regularizacao-sucesso-modal-close-button" type="button">
+                <i class="fas fa-times"></i>
+            </button>
+
+        </div>
+
+        <!-- BODY -->
+        <div class="regularizacao-sucesso-modal-body">
+
+            <!-- ALERTA -->
+            <div class="regularizacao-sucesso-alert-box">
+
+                <div class="regularizacao-sucesso-alert-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+
+                <div class="regularizacao-sucesso-alert-text">
+                    Sua solicitação foi enviada com sucesso!,
+                    número da solicitação: 88!
+                </div>
+
+            </div>
+
+            <!-- TEXTOS -->
+            <p class="regularizacao-sucesso-info-text">
+                Aguarde contato após avaliação.
+            </p>
+
+            <p class="regularizacao-sucesso-info-text">
+                Você será redirecionado para a página inicial.
+            </p>
+
+        </div>
+
+        <!-- FOOTER -->
+        <div class="regularizacao-sucesso-modal-footer">
+            <button class="br-button primary regularizacao-sucesso-confirm-button" type="button" [routerLink]="['/']">
+                Ok
+            </button>
+        </div>
+    </div>
+</br-scrim>
+
+<br-scrim [isOpen]="scrimTutorial" (brScrimClose)="scrimTutorial = false">
+
+    <!-- MODAL -->
+    <div class="br-modal regularizacao-sucesso-modal-container" aria-modal="true">
+
+        <div *ngIf="stepTutorial === 0" class="step-size">
+            <!-- Progress Bar -->
+            <div class="mt-5"
+                style="height: 30px; width:100%; display: flex; align-items: center; justify-content: center;">
+                <img src="/images/passo1.png" alt="Propriedade não localizada">
+            </div>
+
+            <!-- BODY -->
+            <div class="regularizacao-sucesso-modal-body">
+
+                <div class="tutorial-passo-container">
+
+                    <!-- Imagem -->
+                    <div class="tutorial-passo-imagem-wrapper">
+
+                        <img src="images/tutorial_imagem_1.png" alt="Editar mapa" class="tutorial-passo-imagem" />
+
+                    </div>
+
+                    <!-- Título -->
+                    <h2 class="tutorial-passo-titulo">
+                        Passo 1: Clique em Editar
+                    </h2>
+
+                    <!-- Texto -->
+                    <p class="tutorial-passo-descricao">
+                        Para começar a desenhar a área da sua propriedade,
+                        clique no botão "Editar" localizado no canto superior
+                        direito do mapa.
+                    </p>
+
+                </div>
+
+            </div>
+        </div>
+
+        <div *ngIf="stepTutorial === 1" class="step-size">
+            <!-- Progress Bar -->
+            <div class="mt-5"
+                style="height: 30px; width:100%; display: flex; align-items: center; justify-content: center;">
+                <img src="/images/passo2.png" alt="Propriedade não localizada">
+            </div>
+
+            <!-- BODY -->
+            <div class="regularizacao-sucesso-modal-body">
+
+                <div class="tutorial-passo-container">
+
+                    <!-- Imagem -->
+                    <div class="tutorial-passo-imagem-wrapper">
+
+                        <img src="images/tutorial_imagem_2.png" alt="Editar mapa" class="tutorial-passo-imagem" />
+
+                    </div>
+
+                    <!-- Título -->
+                    <h2 class="tutorial-passo-titulo">
+                        Passo 2 - Desenhe o Contorno
+                    </h2>
+
+                    <!-- Texto -->
+                    <p class="tutorial-passo-descricao">
+                        Pressione sobre o mapa pontos que delimitem o perímetro do lote
+                    </p>
+
+                </div>
+
+            </div>
+        </div>
+
+        <div *ngIf="stepTutorial === 2" class="step-size">
+            <!-- Progress Bar -->
+            <div class="mt-5"
+                style="height: 30px; width:100%; display: flex; align-items: center; justify-content: center;">
+                <img src="/images/passo3.png" alt="Propriedade não localizada">
+            </div>
+
+            <!-- BODY -->
+            <div class="regularizacao-sucesso-modal-body">
+
+                <div class="tutorial-passo-container">
+
+                    <!-- Imagem -->
+                    <div class="tutorial-passo-imagem-wrapper">
+
+                        <img src="images/tutorial_imagem_3.png" alt="Editar mapa" class="tutorial-passo-imagem" />
+
+                    </div>
+
+                    <!-- Título -->
+                    <h2 class="tutorial-passo-titulo">
+                        Passo 3 - Faça Correçôes
+                    </h2>
+
+                    <!-- Texto -->
+                    <p class="tutorial-passo-descricao">
+                        Em caso de erro, pressione o botão "Desfazer" para remover o último ponto adicionou ou o botão "Limpar" para remover todos pontos
+                    </p>
+
+                </div>
+
+            </div>
+        </div>
+        
+        <div *ngIf="stepTutorial === 3" class="step-size">
+            <!-- Progress Bar -->
+            <div class="mt-5"
+                style="height: 30px; width:100%; display: flex; align-items: center; justify-content: center;">
+                <img src="/images/passo4.png" alt="Propriedade não localizada">
+            </div>
+
+            <!-- BODY -->
+            <div class="regularizacao-sucesso-modal-body">
+
+                <div class="tutorial-passo-container">
+
+                    <!-- Imagem -->
+                    <div class="tutorial-passo-imagem-wrapper">
+
+                        <img src="images/tutorial_imagem_4.png" alt="Editar mapa" class="tutorial-passo-imagem" />
+
+                    </div>
+
+                    <!-- Título -->
+                    <h2 class="tutorial-passo-titulo">
+                        Passo 4 - Finalize o Desenho
+                    </h2>
+
+                    <!-- Texto -->
+                    <p class="tutorial-passo-descricao">
+                        O último ponto deve se conectar com o primeiro, fechando o contorno do lote. Após terminar o desenho, clique no botão "Terminar"
+                    </p>
+
+                </div>
+
+            </div>
+        </div>        
+
+        <!-- FOOTER -->
+        <div class="regularizacao-sucesso-modal-footer">
+            <a class="mt-2 mr-3" (click)="fecharScrimTutorial()">Pular Tutorial</a>
+            <button class="br-button primary btn-avancar" *ngIf="stepTutorial < 3" (click)="avancarTutorial(step)">
+                Avançar
+            </button>
+
+            <button class="br-button primary btn-finalizar" *ngIf="stepTutorial === 3" (click)="finalizarTutorial()">
+                Finalizar
+            </button>
+        </div>
+    </div>
+</br-scrim>
+
+
+<!-- Passo 1 - Clique em Edital
+Para começar a desenhar a área da sua propriedade, clique no botão "Editar" localizado no canto superior direito do mapa
+
+Passo 2 - Desenhe o Contorno
+Pressione sobre o mapa pontos que delimitem o perímetro do lote
+
+Passo 3 - Faça Correçôes
+Em caso de erro, pressione o botão "Desfazer" para remover o último ponto adicionou ou o botão "Limpar" para remover
+todos pontos
+
+Passo 4 - Finalize o Desenho
+O último ponto deve se conectar com o primeiro, fechando o contorno do lote. Após terminar o desenho, clique no botão
+"Terminar" -->

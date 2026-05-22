@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { Header } from './header';
+import { Regularizacaoassistida } from './regularizacaoassistida';
 
-describe('Header', () => {
-  let component: Header;
-  let fixture: ComponentFixture<Header>;
+describe('Regularizacaoassistida', () => {
+  let component: Regularizacaoassistida;
+  let fixture: ComponentFixture<Regularizacaoassistida>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [Header]
+      imports: [Regularizacaoassistida]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(Header);
+    fixture = TestBed.createComponent(Regularizacaoassistida);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });

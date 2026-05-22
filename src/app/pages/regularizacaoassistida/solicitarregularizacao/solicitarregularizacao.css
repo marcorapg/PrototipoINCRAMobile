@@ -1,0 +1,688 @@
+/* -----------Passo 1---------- */
+
+.regularizacao-container {
+    max-width: 380px;
+    margin: 24px auto;
+    border-radius: 8px;
+}
+
+.card-content {
+    padding: 20px;
+}
+
+.titulo {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 12px;
+    line-height: 1.2;
+}
+
+.descricao {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.info-box {
+    border: 1px solid #d9d9d9;
+    border-radius: 4px;
+    padding: 20px;
+    background: #fafafa;
+}
+
+.info-box h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #1351b4;
+    margin-bottom: 16px;
+}
+
+.info-box p {
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.5;
+    margin-bottom: 16px;
+}
+
+.campo-cpf {
+    margin-top: 24px;
+    margin-bottom: 24px;
+}
+
+.btn-confirmar {
+    width: 100%;
+    justify-content: center;
+}
+
+/* ----------Passo 2---------- */
+
+.dados-page {
+    padding: 16px;
+    max-width: 480px;
+    margin: 0 auto;
+    background: #f8f8f8;
+}
+
+/* TOPO */
+
+.descricao-topo {
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+/* CARDS */
+
+.info-card {
+    border-radius: 14px;
+    margin-bottom: 20px;
+}
+
+.card-content {
+    padding: 20px;
+}
+
+.card-content h2 {
+    color: #1351b4;
+    font-size: 1.5rem;
+    line-height: 1.2;
+    font-weight: 600;
+    margin-bottom: 24px;
+}
+
+/* CAMPOS */
+
+.campo {
+    margin-bottom: 20px;
+}
+
+.br-label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #333;
+}
+
+.cpf-texto {
+    font-size: 1.2rem;
+    color: #666;
+}
+
+.br-select {
+    width: 100%;
+    height: 48px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 0 16px;
+    background: white;
+    font-size: 1rem;
+}
+
+/* CPF CONSULTA */
+
+.cpf-container {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+}
+
+.cpf-container .br-input {
+    flex: 1;
+    height: 48px;
+    border-radius: 8px;
+}
+
+.cpf-container .br-button {
+    min-width: 120px;
+    height: 48px;
+    justify-content: center;
+}
+
+/* MENSAGENS */
+
+.mensagem {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.mensagem.erro {
+    color: #c10007;
+}
+
+.mensagem.sucesso {
+    color: #168821;
+    font-weight: 500;
+}
+
+/* ALERTA */
+
+.alerta {
+    margin-top: 20px;
+    background: #ffcd07;
+    color: #222;
+    padding: 10px 12px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-style: italic;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* AÇÕES */
+
+.acoes {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    margin-top: 28px;
+}
+
+.acoes .br-button {
+    flex: 1;
+    height: 48px;
+    justify-content: center;
+}
+
+/* MOBILE */
+
+@media (max-width: 360px) {
+
+    .cpf-container {
+        flex-direction: column;
+    }
+
+    .cpf-container .br-button {
+        width: 100%;
+    }
+
+}
+
+h2 {
+    margin: 0px !important;
+    padding: 0px !important;
+    padding-bottom: 10px !important;
+}
+
+/* ---------Passo 3---------- */
+
+.localizar-page {
+    padding: 8px;
+    max-width: 480px;
+    margin: 0 auto;
+}
+
+/* TOPO */
+
+.topo {
+    margin-bottom: 20px;
+}
+
+.titulo-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+}
+
+.titulo-container h1 {
+    margin: 0;
+    font-size: 2rem;
+    font-weight: 500;
+    color: #333;
+}
+
+.botao-ajuda {
+    width: 40px;
+    height: 40px;
+    color: #1351b4;
+}
+
+.descricao {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #555;
+    margin: 0;
+}
+
+/* INSTRUÇÕES */
+
+.instrucoes-card {
+    border-radius: 8px;
+}
+
+.instrucoes-content {
+    padding: 18px 16px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.icone-mapa {
+    width: 56px;
+    height: 56px;
+    object-fit: contain;
+}
+
+.instrucoes-content p {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #555;
+}
+
+/* MOBILE */
+
+@media (max-width: 360px) {
+
+    .mapa-container {
+        height: 360px;
+    }
+
+    .titulo-container h1 {
+        font-size: 1.7rem;
+    }
+
+    .botao-localizacao {
+        width: calc(100% - 24px);
+        justify-content: center;
+    }
+
+}
+
+
+/* ---------Passo 4---------- */
+
+.card-lote {
+    border-radius: 6px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.10);
+    background: #fff;
+}
+
+.card-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.titulo-card {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 200;
+    color: var(--blue-warm-vivid-70);
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+}
+
+.label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--blue-warm-vivid-70);
+}
+
+.valor {
+    font-size: 0.90rem;
+    color: var(--gray-80);
+    line-height: 1.2;
+}
+
+.linha-dupla {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.linha-dupla .campo {
+    flex: 1;
+}
+
+@media (max-width: 768px) {
+    .linha-dupla {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+}
+
+
+/* ---------Wizard----------- */
+
+
+.wizard-container {
+    width: 100%;
+
+    border: 1px solid #d9d9d9;
+    border-radius: 12px;
+
+    background: #fff;
+
+    display: flex;
+    flex-direction: column;
+
+    overflow: hidden;
+}
+
+.wizard-content {
+    padding: 12px;
+}
+
+.wizard-footer {
+    padding: 12px 16px;
+
+    border-top: 1px solid #e5e5e5;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    flex-shrink: 0;
+}
+
+.footer-actions {
+    display: flex;
+    gap: 12px;
+}
+
+.step-size {
+    height: 585px;
+    overflow-y: auto;
+}
+
+
+/* ----------Scrim------------ */
+
+.modal-propriedade {
+    position: relative;
+    width: 320px;
+    background: #fff;
+    border-radius: 8px;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    box-sizing: border-box;
+}
+
+.fechar {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    color: var(--blue-warm-vivid-70);
+    font-size: 1rem;
+}
+
+.titulo-scrim {
+    width: 100%;
+    margin: 0;
+    padding-right: 1.5rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--gray-80);
+    text-align: left;
+}
+
+.imagem-container {
+    width: 220px;
+    height: 220px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.imagem-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.descricao {
+    margin: 0;
+    font-size: 1rem;
+    color: var(--gray-70);
+    text-align: center;
+    line-height: 1.4;
+}
+
+.acoes {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+}
+
+.acoes .br-button {
+    min-width: 80px;
+}
+
+
+
+/* --------Scrim Sucesso--------- */
+
+/* SCRIM */
+
+.regularizacao-sucesso-modal-scrim {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 16px;
+    z-index: 9999;
+}
+
+/* MODAL */
+
+.regularizacao-sucesso-modal-container {
+    width: 100%;
+    max-width: 400px;
+
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+/* HEADER */
+
+.regularizacao-sucesso-modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 20px 20px 12px;
+}
+
+.regularizacao-sucesso-modal-title {
+    font-size: 1.8rem;
+    font-weight: 600;
+    line-height: 1.2;
+
+    color: #333333;
+}
+
+.regularizacao-sucesso-modal-close-button {
+    flex-shrink: 0;
+}
+
+/* BODY */
+
+.regularizacao-sucesso-modal-body {
+    padding: 12px 20px 24px;
+}
+
+/* ALERTA */
+
+.regularizacao-sucesso-alert-box {
+    display: flex;
+    gap: 16px;
+
+    background: #e8f5e4;
+
+    padding: 24px 20px;
+    border-radius: 4px;
+
+    margin-bottom: 24px;
+}
+
+.regularizacao-sucesso-alert-icon {
+    display: flex;
+    align-items: flex-start;
+
+    color: #168821;
+    font-size: 1.8rem;
+
+    flex-shrink: 0;
+}
+
+.regularizacao-sucesso-alert-text {
+    font-size: 1.1rem;
+    line-height: 1.5;
+
+    color: #4d4d4d;
+}
+
+/* TEXTOS */
+
+.regularizacao-sucesso-info-text {
+    font-size: 1rem;
+    line-height: 1.6;
+
+    color: #555555;
+
+    margin-bottom: 16px;
+}
+
+.regularizacao-sucesso-info-text:last-child {
+    margin-bottom: 0;
+}
+
+/* FOOTER */
+
+.regularizacao-sucesso-modal-footer {
+    display: flex;
+    justify-content: flex-end;
+
+    padding: 0 20px 24px;
+}
+
+.regularizacao-sucesso-confirm-button {
+    min-width: 88px;
+    height: 48px;
+
+    border-radius: 999px;
+
+    font-size: 1rem;
+    font-weight: 600;
+
+    justify-content: center;
+}
+
+/* MOBILE */
+
+@media (max-width: 360px) {
+
+    .regularizacao-sucesso-modal-title {
+        font-size: 1.5rem;
+    }
+
+    .regularizacao-sucesso-alert-text {
+        font-size: 1rem;
+    }
+
+}
+
+
+
+/* ---------TUTORIAL---------- */
+
+.tutorial-passo-container {
+    width: 100%;
+    padding: 32px 24px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+}
+
+/* IMAGEM */
+
+.tutorial-passo-imagem-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 16px;
+}
+
+.tutorial-passo-imagem {
+    width: 260px;
+    max-width: 100%;
+    height: auto;
+
+    object-fit: contain;
+}
+
+/* TÍTULO */
+
+.tutorial-passo-titulo {
+    font-size: 1.4rem;
+    font-weight: 700;
+    line-height: 1.1;
+
+    color: #444444;
+
+    margin: 0 0 24px;
+}
+
+/* DESCRIÇÃO */
+
+.tutorial-passo-descricao {
+    max-width: 340px;
+
+    font-size: 1.1rem;
+    line-height: 1.6;
+
+    color: #555555;
+
+    margin: 0;
+}
+
+/* MOBILE */
+
+@media (max-width: 360px) {
+
+    .tutorial-passo-container {
+        padding: 14px 16px;
+    }
+
+    .tutorial-passo-imagem {
+        width: 220px;
+    }
+
+    .tutorial-passo-titulo {
+        font-size: 0.7rem;
+    }
+
+    .tutorial-passo-descricao {
+        font-size: 1rem;
+    }
+
+}

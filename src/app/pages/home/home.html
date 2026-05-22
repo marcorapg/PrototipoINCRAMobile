@@ -1,11 +1,29 @@
+<div class="services-section">
 
-waefwaf
-awef
-awefefwa
-efawefaw <br>awefaw <br>awefaw <br>awefaw <br>awefaw <br>awefaw <br>awefaw <br>awefaw <br>awefaw <br>awefaw <br>awefaw <br>awefaw <br>awefaw <br>awefaw <br>awefaw <br>awefaw <br>awefaw <br>
-efawefaw <br>awefaw <br>awefaw <br>awefaw <br>awefaw <br>awefaw <br>awefaw <br>awefaw <br>awefaw <br>awefaw <br>awefaw <br>awefaw <br>awefaw <br>awefaw <br>awefaw <br>awefaw <br>awefaw <br>
-efawefaw <br>awefaw <br>awefaw <br>awefaw <br>awefaw <br>awefaw <br>awefaw <br>awefaw <br>awefaw <br>awefaw <br>awefaw <br>awefaw <br>awefaw <br>awefaw <br>awefaw <br>awefaw <br>awefaw <br>
-efawefaw <br>awefaw <br>awefaw <br>awefaw <br>awefaw <br>awefaw <br>awefaw <br>awefaw <br>awefaw <br>awefaw <br>awefaw <br>awefaw <br>awefaw <br>awefaw <br>awefaw <br>awefaw <br>awefaw <br>
-efawefaw <br>awefaw <br>awefaw <br>awefaw <br>awefaw <br>awefaw <br>awefaw <br>awefaw <br>awefaw <br>awefaw <br>awefaw <br>awefaw <br>awefaw <br>awefaw <br>awefaw <br>awefaw <br>awefaw <br>
+    <div class="section-header">
 
+        <h2 class="section-title">
+            Serviços
+        </h2>
 
+        <a href="#" class="section-link">
+            Todos os serviços <span>&gt;</span>
+        </a>
+
+    </div>
+
+    <div class="home-grid">
+
+        <button *ngFor="let card of serviceCards" class="feature-card br-button secondary" routerLink="/regularizacaoassistida">
+
+            <i [class]="card.icon + ' feature-icon'"></i>
+
+            <span class="feature-title" style="white-space: pre-line;">
+                {{ card.title }}
+            </span>
+
+        </button>
+
+    </div>
+
+</div>

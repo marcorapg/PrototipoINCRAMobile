@@ -1,75 +1,235 @@
 .app-container {
-  min-height: 100vh;
-  background: #fff;
+    min-height: 100vh;
+    background: #fff;
 }
 
 .topbar {
-  height: 64px;
-  border-bottom: 1px solid #d9d9d9;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 16px;
-  position: sticky;
-  top: 0;
-  background: white;
-  z-index: 1000;
+    height: 64px;
+    border-bottom: 1px solid #d9d9d9;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 16px;
+    position: sticky;
+    top: 0;
+    background: white;
+    z-index: 1000;
 }
 
 .topbar-left,
 .topbar-right {
-  display: flex;
-  align-items: center;
-  gap: 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
 }
 
 .topbar-title {
-  color: #1351b4;
-  font-size: 20px;
+    color: #1351b4;
+    font-size: 20px;
 }
 
 .icon-button {
-  border: none;
-  background: transparent;
-  color: #1351b4;
-  font-size: 20px;
+    border: none;
+    background: transparent;
+    color: #1351b4;
+    font-size: 20px;
 }
 
 .content {
-  padding: 16px;
-  padding-bottom: 90px;
+    /* padding: 16px; */
+    padding-bottom: 90px;
 }
 
 .bottom-nav {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 72px;
-  background: #071d41;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  z-index: 2000;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 72px;
+    background: #071d41;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    z-index: 2000;
 }
 
 .nav-item {
-  flex: 1;
-  height: 100%;
-  color: white;
-  text-decoration: none;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 6px;
-  font-size: 12px;
+    flex: 1;
+    height: 100%;
+    color: white;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
 }
 
 .nav-item i {
-  font-size: 20px;
+    font-size: 20px;
 }
 
 .nav-item.active {
-  background: rgba(255,255,255,0.08);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+
+/* MENU LATERAL */
+
+.services-section {
+    padding: 16px;
+    padding-bottom: 100px;
+}
+
+/* GRID */
+
+.home-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 16px;
+}
+
+.feature-card {
+    height: 120px !important;
+
+    display: flex !important;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 12px;
+
+    border-radius: 16px !important;
+
+    border: 1px solid #dfe1e5 !important;
+}
+
+.feature-icon {
+    font-size: 28px;
+    color: #1351b4;
+}
+
+.feature-title {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+/* MENU INFERIOR */
+
+.bottom-nav {
+    position: fixed;
+
+    bottom: 0;
+    left: 0;
+
+    width: 100%;
+    height: 72px;
+
+    background: #071d41;
+
+    display: flex;
+
+    z-index: 1000;
+}
+
+.nav-item {
+    flex: 1;
+
+    border: none;
+    background: transparent;
+
+    color: white;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 6px;
+
+    font-size: 12px;
+}
+
+/* OVERLAY */
+
+.menu-overlay {
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.4);
+
+    z-index: 1990;
+}
+
+/* MENU LATERAL */
+
+.side-menu {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 280px;
+    height: 100vh;
+
+    background: white;
+
+    z-index: 2000;
+
+    transform: translateX(-100%);
+
+    transition: transform 0.3s ease;
+
+    box-shadow: 4px 0 16px rgba(0, 0, 0, 0.12);
+}
+
+.side-menu.open {
+    transform: translateX(0);
+}
+
+.menu-header {
+    height: 72px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 0 20px;
+
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.menu-header h2 {
+    font-size: 20px;
+    color: #1351b4;
+}
+
+.menu-list {
+    padding: 16px;
+}
+
+.menu-item {
+    width: 100%;
+
+    display: flex !important;
+    align-items: center;
+
+    justify-content: flex-start;
+
+    gap: 16px;
+
+    height: 52px;
+
+    margin-bottom: 8px;
+
+    border-radius: 12px !important;
+}
+
+.menu-item i {
+    font-size: 18px;
 }
