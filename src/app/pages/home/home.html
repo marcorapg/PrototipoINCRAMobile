@@ -14,7 +14,7 @@
 
     <div class="home-grid">
 
-        <button *ngFor="let card of serviceCards" class="feature-card br-button secondary" routerLink="/regularizacaoassistida">
+        <button *ngFor="let card of serviceCards" class="feature-card br-button secondary" routerLink="{{ card.url }}">
 
             <i [class]="card.icon + ' feature-icon'"></i>
 

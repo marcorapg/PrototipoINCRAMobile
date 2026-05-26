@@ -1,0 +1,172 @@
+<app-pageheader title="Autossupervisão ocupacional" backLink="/"></app-pageheader>
+
+<div class="autossupervisao-page">
+
+    <!-- HEADER -->
+    <div class="autossupervisao-header">
+
+        <h1 class="autossupervisao-title">
+            Autossupervisão Ocupacional
+        </h1>
+
+    </div>
+
+    <!-- CARD EXPLICAÇÃO -->
+    <div class="br-card autossupervisao-info-card">
+
+        <div class="autossupervisao-info-content">
+
+            <h2 class="autossupervisao-info-title">
+                O que é a Autossupervisão Ocupacional?
+            </h2>
+
+            <p class="autossupervisao-info-text">
+                A Autossupervisão Ocupacional é o procedimento em que o assentado
+                comprova a ocupação e utilização da terra enviando informações e
+                evidências da propriedade.
+            </p>
+
+            <p class="autossupervisao-info-text">
+                Durante o preenchimento você poderá informar:
+            </p>
+
+            <!-- LISTA -->
+            <div class="autossupervisao-info-list">
+
+                <div class="autossupervisao-info-item">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Moradia existente no lote</span>
+                </div>
+
+                <div class="autossupervisao-info-item">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Produção animal</span>
+                </div>
+
+                <div class="autossupervisao-info-item">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Produção agrícola</span>
+                </div>
+
+                <div class="autossupervisao-info-item">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Benfeitorias e estruturas</span>
+                </div>
+
+                <div class="autossupervisao-info-item">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Fotos e documentos comprobatórios</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- LISTA -->
+    <div class="autossupervisao-list-header">
+
+        <h2 class="autossupervisao-list-title">
+            Minhas Autossupervisões
+        </h2>
+
+    </div>
+
+    <!-- ITEM PENDENTE -->
+    <div class="br-card autossupervisao-item-card">
+
+        <div class="autossupervisao-item-content">
+
+            <!-- TOPO -->
+            <div class="autossupervisao-item-header">
+
+                <div>
+
+                    <div class="autossupervisao-item-protocolo">
+                        Protocolo #2026-000145
+                    </div>
+
+                    <div class="autossupervisao-item-date">
+                        Criado em 12/05/2026
+                    </div>
+
+                </div>
+
+                <div class="autossupervisao-status-badge autossupervisao-status-pendente">
+                    Pendente
+                </div>
+
+            </div>
+
+            <!-- TEXTO -->
+            <div class="autossupervisao-item-body">
+
+                <div class="autossupervisao-item-name">
+                    Autossupervisão Ocupacional
+                </div>
+
+                <div class="autossupervisao-item-description">
+                    Aguardando envio das informações e evidências da ocupação.
+                </div>
+
+            </div>
+
+            <!-- AÇÃO -->
+            <div class="autossupervisao-item-footer">
+                <button class="br-button secondary autossupervisao-item-button" type="button"
+                    [routerLink]="['/autosupervisaoocupacional/preencherautosupervisao']">
+                    Continuar
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ITEM CONCLUÍDO -->
+    <div class="br-card autossupervisao-item-card">
+
+        <div class="autossupervisao-item-content">
+
+            <!-- TOPO -->
+            <div class="autossupervisao-item-header">
+
+                <div>
+
+                    <div class="autossupervisao-item-protocolo">
+                        Protocolo #2025-000088
+                    </div>
+
+                    <div class="autossupervisao-item-date">
+                        Enviado em 21/11/2025
+                    </div>
+
+                </div>
+
+                <div class="autossupervisao-status-badge autossupervisao-status-concluida">
+                    Concluída
+                </div>
+
+            </div>
+
+            <!-- TEXTO -->
+            <div class="autossupervisao-item-body">
+
+                <div class="autossupervisao-item-name">
+                    Autossupervisão Ocupacional
+                </div>
+
+                <div class="autossupervisao-item-description">
+                    Informações analisadas e concluídas pela equipe responsável.
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="autosupervisao-ocupacional-page">
+    <!-- BOTÕES -->
+    <div class="autosupervisao-ocupacional-footer-actions">
+
+        <button class="br-button secondary autosupervisao-ocupacional-footer-button" type="button" [routerLink]="['/']">
+            Voltar
+        </button>
+    </div>
+</div>

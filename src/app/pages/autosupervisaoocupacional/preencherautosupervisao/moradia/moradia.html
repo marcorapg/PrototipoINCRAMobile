@@ -1,0 +1,112 @@
+<app-pageheader title="Moradia Principal" backLink="/autosupervisaoocupacional/preencherautosupervisao"></app-pageheader>
+
+<div class="moradia-page">
+
+    <!-- HEADER -->
+    <div class="moradia-header">
+
+        <h1 class="moradia-title">
+            Moradia
+        </h1>
+
+        <p class="moradia-description">
+            Informe se existe moradia no lote e suas características.
+        </p>
+
+    </div>
+
+    <!-- CARD -->
+    <div class="br-card moradia-card">
+
+        <div class="moradia-card-content">
+
+            <h2 class="moradia-card-title">
+                Dados da Moradia
+            </h2>
+
+            <!-- RADIO -->
+            <div class="moradia-field-group">
+
+                <label class="moradia-field-label">
+                    Existe moradia no lote?*
+                </label>
+
+                <div class="moradia-radio-group">
+
+                    <div class="br-radio">
+                        <input id="moradia-nao" type="radio" name="possuiMoradia" [value]="false"
+                            [(ngModel)]="possuiMoradia" />
+
+                        <label for="moradia-nao">
+                            Não
+                        </label>
+                    </div>
+
+                    <div class="br-radio">
+                        <input id="moradia-sim" type="radio" name="possuiMoradia" [value]="true"
+                            [(ngModel)]="possuiMoradia" />
+
+                        <label for="moradia-sim">
+                            Sim
+                        </label>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- CAMPOS EXIBIDOS APENAS SE SIM -->
+            <div *ngIf="possuiMoradia">
+
+                <!-- TIPO CONSTRUTIVO -->
+                <div class="moradia-field-group">
+
+                    <label class="moradia-field-label" for="tipoConstrutivo">
+                        Tipo Construtivo
+                    </label>
+
+                    <br-select [options]="tipoConstrutivoOptions" id="tipoConstrutivo" placeholder="Selecione tipo">
+                    </br-select>
+
+                </div>
+
+                <!-- DESCRIÇÃO -->
+                <div class="moradia-field-group">
+
+                    <label class="moradia-field-label" for="descricaoMoradia">
+                        Descrição
+                    </label>
+
+                    <textarea id="descricaoMoradia" class="moradia-textarea" rows="3"
+                        placeholder="Informações adicionais sobre a moradia" [(ngModel)]="descricao">
+          </textarea>
+
+                </div>
+
+                <!-- FOTO -->
+                <button class="br-button secondary moradia-capture-button" type="button">
+                    <i class="fas fa-camera"></i>
+
+                    Capturar Foto
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- FOOTER -->
+    <div class="moradia-footer-actions">
+
+        <button class="br-button secondary moradia-footer-button" type="button" [routerLink]="['/autosupervisaoocupacional/preencherautosupervisao']">
+            Voltar
+        </button>
+
+        <button class="br-button primary moradia-footer-button" type="button">
+            Salvar
+        </button>
+
+    </div>
+
+</div>

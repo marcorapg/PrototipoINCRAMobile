@@ -1,0 +1,344 @@
+<app-pageheader title="Revisar Dados" backLink="/autosupervisaoocupacional/preencherautosupervisao"></app-pageheader>
+
+<div class="revisao-envio-page">
+
+    <!-- HEADER -->
+    <div class="revisao-envio-header">
+
+        <h1 class="revisao-envio-title">
+            Revisar Dados
+        </h1>
+
+        <p class="revisao-envio-description">
+            Confira todas as informações antes de enviar sua solicitação.
+        </p>
+
+    </div>
+
+    <!-- MORADIA -->
+    <div class="br-card revisao-envio-card">
+
+        <div class="revisao-envio-card-header">
+
+            <div>
+                <h2 class="revisao-envio-card-title">
+                    Moradia
+                </h2>
+
+                <p class="revisao-envio-card-subtitle">
+                    Dados da moradia informada
+                </p>
+            </div>
+
+            <button class="br-button circle small secondary" type="button"
+                [routerLink]="['/autosupervisaoocupacional/preencherautosupervisao/moradia']">
+                <i class="fas fa-pen"></i>
+            </button>
+
+        </div>
+
+        <div class="revisao-envio-info-list">
+
+            <div class="revisao-envio-info-item">
+                <span class="revisao-envio-info-label">
+                    Existe moradia
+                </span>
+
+                <span class="revisao-envio-info-value">
+                    Sim
+                </span>
+            </div>
+
+            <div class="revisao-envio-info-item">
+                <span class="revisao-envio-info-label">
+                    Tipo construtivo
+                </span>
+
+                <span class="revisao-envio-info-value">
+                    Alvenaria
+                </span>
+            </div>
+
+            <div class="revisao-envio-info-item">
+                <span class="revisao-envio-info-label">
+                    Descrição
+                </span>
+
+                <span class="revisao-envio-info-value">
+                    Casa principal da propriedade
+                </span>
+            </div>
+
+
+            <img src="/images/foto-moradia.png" alt="Produção animal" class="revisao-envio-thumbnail" />
+        </div>
+
+    </div>
+
+    <!-- PRODUÇÃO ANIMAL -->
+    <div class="br-card revisao-envio-card">
+
+        <div class="revisao-envio-card-header">
+
+            <div>
+                <h2 class="revisao-envio-card-title">
+                    Produção Animal
+                </h2>
+
+                <p class="revisao-envio-card-subtitle">
+                    Itens cadastrados
+                </p>
+            </div>
+
+            <button class="br-button circle small secondary" type="button"
+                [routerLink]="['/autosupervisaoocupacional/preencherautosupervisao/producao-animal']">
+                <i class="fas fa-pen"></i>
+            </button>
+
+        </div>
+
+        <div class="revisao-envio-list-item">
+
+            <img src="/images/cabecas-gado.png" alt="Produção animal" class="revisao-envio-thumbnail" />
+
+            <div class="revisao-envio-list-info">
+
+                <div class="revisao-envio-list-title">
+                    Bovinos
+                </div>
+
+                <div class="revisao-envio-list-text">
+                    Gado leiteiro
+                </div>
+
+                <div class="revisao-envio-list-meta">
+                    Quantidade: 32 animais
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- PRODUÇÃO AGRÍCOLA -->
+    <div class="br-card revisao-envio-card">
+
+        <div class="revisao-envio-card-header">
+
+            <div>
+                <h2 class="revisao-envio-card-title">
+                    Produção Agrícola
+                </h2>
+
+                <p class="revisao-envio-card-subtitle">
+                    Itens cadastrados
+                </p>
+            </div>
+
+            <button class="br-button circle small secondary" type="button"
+                [routerLink]="['/autosupervisaoocupacional/preencherautosupervisao/producao-agricola']">
+                <i class="fas fa-pen"></i>
+            </button>
+
+        </div>
+
+        <div class="revisao-envio-list-item">
+
+            <img src="/images/milho.png" alt="Produção agrícola" class="revisao-envio-thumbnail" />
+
+            <div class="revisao-envio-list-info">
+
+                <div class="revisao-envio-list-title">
+                    Milho
+                </div>
+
+                <div class="revisao-envio-list-text">
+                    Plantação principal da propriedade
+                </div>
+
+                <div class="revisao-envio-list-meta">
+                    Área utilizada: 1200 m²
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- BENFEITORIAS -->
+    <div class="br-card revisao-envio-card">
+
+        <div class="revisao-envio-card-header">
+
+            <div>
+                <h2 class="revisao-envio-card-title">
+                    Benfeitorias
+                </h2>
+
+                <p class="revisao-envio-card-subtitle">
+                    Estruturas cadastradas
+                </p>
+            </div>
+
+            <button class="br-button circle small secondary" type="button"
+                [routerLink]="['/autosupervisaoocupacional/preencherautosupervisao/benfeitorias']">
+                <i class="fas fa-pen"></i>
+            </button>
+
+        </div>
+
+        <div class="revisao-envio-list-item">
+
+            <img src="/images/galpao.png" alt="Benfeitoria" class="revisao-envio-thumbnail" />
+
+            <div class="revisao-envio-list-info">
+
+                <div class="revisao-envio-list-title">
+                    Galpão
+                </div>
+
+                <div class="revisao-envio-list-text">
+                    Galpão utilizado para armazenar grãos
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- DOCUMENTOS -->
+    <div class="br-card revisao-envio-card">
+
+        <div class="revisao-envio-card-header">
+
+            <div>
+                <h2 class="revisao-envio-card-title">
+                    Documentos
+                </h2>
+
+                <p class="revisao-envio-card-subtitle">
+                    Arquivos anexados
+                </p>
+            </div>
+
+            <button class="br-button circle small secondary" type="button"
+                [routerLink]="['/autosupervisaoocupacional/preencherautosupervisao/documentos']">
+                <i class="fas fa-pen"></i>
+            </button>
+
+        </div>
+
+        <div class="revisao-envio-list-item">
+
+            <img src="/images/foto-documento.png" alt="Documento" class="revisao-envio-thumbnail" />
+
+            <div class="revisao-envio-list-info">
+
+                <div class="revisao-envio-list-title">
+                    Comprovante de residência
+                </div>
+
+                <div class="revisao-envio-list-text">
+                    Conta de energia da propriedade
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- DECLARAÇÃO -->
+    <div class="br-card revisao-envio-declaracao-card">
+
+        <div class="revisao-envio-declaracao-content">
+
+            <div class="br-checkbox">
+
+                <input id="aceiteDeclaracao" type="checkbox" [(ngModel)]="aceitouDeclaracao" />
+
+                <label for="aceiteDeclaracao">
+
+                    Declaro que as informações prestadas são verdadeiras e estou
+                    ciente das responsabilidades legais.
+
+                </label>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- FOOTER -->
+    <div class="revisao-envio-footer-actions">
+
+        <button class="br-button secondary revisao-envio-footer-button" type="button"
+            [routerLink]="['/autosupervisaoocupacional/preencherautosupervisao']">
+            Voltar
+        </button>
+
+        <button class="br-button primary revisao-envio-footer-button" type="button" [disabled]="!aceitouDeclaracao" (click)="finalizar()">
+            Enviar Solicitação
+        </button>
+
+    </div>
+
+</div>
+
+<br-scrim [isOpen]="scrimSucesso" (brScrimClose)="scrimSucesso = false">
+
+    <!-- MODAL -->
+    <div class="br-modal regularizacao-sucesso-modal-container" aria-modal="true">
+
+        <!-- HEADER -->
+        <div class="regularizacao-sucesso-modal-header">
+
+            <div class="regularizacao-sucesso-modal-title">
+                Envio com sucesso!
+            </div>
+
+            <button class="br-button circle small secondary regularizacao-sucesso-modal-close-button" type="button">
+                <i class="fas fa-times"></i>
+            </button>
+
+        </div>
+
+        <!-- BODY -->
+        <div class="regularizacao-sucesso-modal-body">
+
+            <!-- ALERTA -->
+            <div class="regularizacao-sucesso-alert-box">
+
+                <div class="regularizacao-sucesso-alert-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+
+                <div class="regularizacao-sucesso-alert-text">
+                    Suas informações de autossupervisão foram enviadas com sucesso!
+                </div>
+
+            </div>
+
+            <!-- TEXTOS -->
+            <p class="regularizacao-sucesso-info-text">
+                Aguarde contato após avaliação.
+            </p>
+
+            <p class="regularizacao-sucesso-info-text">
+                Você será redirecionado para a página inicial.
+            </p>
+
+        </div>
+
+        <!-- FOOTER -->
+        <div class="regularizacao-sucesso-modal-footer">
+            <button class="br-button primary regularizacao-sucesso-confirm-button" type="button" [routerLink]="['/']">
+                Ok
+            </button>
+        </div>
+    </div>
+</br-scrim>

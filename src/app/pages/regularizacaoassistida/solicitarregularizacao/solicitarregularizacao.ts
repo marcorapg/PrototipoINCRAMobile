@@ -55,15 +55,23 @@ export class Solicitarregularizacao {
   cancelar(): void {
     console.log('Cancelado');
   }
-  voltar(step: number): void { 
+  voltar(step: number): void {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
     this.loteNaoEncontrado = this.cpfSolicitante === '111.111.111-11';
 
-    if(!this.loteNaoEncontrado && step === 6)
+    if (!this.loteNaoEncontrado && step === 6)
       this.step = 3;
-    else 
+    else
       this.step = step - 1;
   }
   avancar(step: number): void {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
     this.loteNaoEncontrado = this.cpfSolicitante === '111.111.111-11';
 
 

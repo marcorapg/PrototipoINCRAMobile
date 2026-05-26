@@ -1,0 +1,136 @@
+<app-pageheader title="Produção Agrícola"
+    backLink="/autosupervisaoocupacional/preencherautosupervisao"></app-pageheader>
+
+<div class="producao-agricola-page">
+
+    <!-- HEADER -->
+    <div class="producao-agricola-header">
+
+        <h1 class="producao-agricola-title">
+            Produção Agrícola
+        </h1>
+
+        <p class="producao-agricola-description">
+            Informe os dados da produção agrícola e capture ao menos uma foto
+            para melhorar a identificação.
+        </p>
+
+    </div>
+
+    <!-- CARD FORM -->
+    <div class="br-card producao-agricola-card">
+
+        <div class="producao-agricola-card-content">
+
+            <h2 class="producao-agricola-card-title">
+                Dados da produção agrícola
+            </h2>
+
+            <!-- SELECT -->
+            <div class="producao-agricola-field-group">
+
+                <label class="producao-agricola-field-label" for="tipoCulturaAgricola">
+                    Tipo de Cultura Agricola
+                </label>
+
+                <br-select [options]="tipoCulturaAgricolaOptions" id="tipoCulturaAgricola" placeholder="Selecione tipo"
+                    (valueChange)="onTipoCulturaChange($event)">
+                </br-select>
+
+            </div>
+
+            <!-- DESCRIÇÃO -->
+            <div class="producao-agricola-field-group">
+
+                <label class="producao-agricola-field-label" for="descricao">
+                    Descrição
+                </label>
+
+                <input id="descricao" type="text" class="producao-agricola-input" placeholder="ex: Tomate"
+                    [(ngModel)]="descricao" />
+
+            </div>
+
+            <!-- ÁREA -->
+            <div class="producao-agricola-field-group">
+
+                <label class="producao-agricola-field-label" for="areaUtilizada">
+                    Área utilizada na produção (m²)
+                </label>
+
+                <input id="areaUtilizada" type="number" class="producao-agricola-input" [(ngModel)]="areaUtilizada" />
+
+            </div>
+
+            <!-- FOTO -->
+            <button class="br-button secondary producao-agricola-capture-button" type="button">
+                <i class="fas fa-camera"></i>
+
+                Capturar Foto
+            </button>
+
+            <!-- SALVAR -->
+            <button class="br-button primary producao-agricola-save-button" type="button" [disabled]="!formularioValido"
+                (click)="salvarItem()">
+                Salvar
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- LISTA -->
+    <div class="producao-agricola-lista-container" *ngIf="itensProducao.length > 0">
+
+        <div class="br-card producao-agricola-lista-card" *ngFor="let item of itensProducao; let i = index">
+
+            <div class="producao-agricola-lista-content">
+
+                <!-- THUMB -->
+                <img src="/images/milho.png" alt="Produção agrícola"
+                    class="producao-agricola-thumbnail" />
+
+                <!-- INFOS -->
+                <div class="producao-agricola-lista-info">
+
+                    <div class="producao-agricola-lista-header">
+
+                        <div class="producao-agricola-lista-titulo">
+                            {{ item.tipo }}
+                        </div>
+
+                        <!-- LIXEIRA -->
+                        <button class="br-button circle small secondary producao-agricola-delete-button" type="button"
+                            (click)="removerItem(i)">
+                            <i class="fas fa-trash"></i>
+                        </button>
+
+                    </div>
+
+                    <div class="producao-agricola-lista-texto">
+                        {{ item.descricao }}
+                    </div>
+
+                    <div class="producao-agricola-lista-area">
+                        Área: {{ item.area }} m²
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- FOOTER -->
+    <div class="producao-agricola-footer-actions">
+
+        <button class="br-button secondary producao-agricola-footer-button" type="button"
+            [routerLink]="['/autosupervisaoocupacional/preencherautosupervisao']">
+            Voltar
+        </button>
+
+    </div>
+
+</div>

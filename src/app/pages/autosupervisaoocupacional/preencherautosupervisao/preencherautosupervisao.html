@@ -1,0 +1,277 @@
+<app-pageheader title="Supervisão Ocupacional" backLink="/autosupervisaoocupacional"></app-pageheader>
+
+<div class="autosupervisao-ocupacional-page">
+
+  <!-- TOPO -->
+  <div class="autosupervisao-ocupacional-header">
+
+    <h1 class="autosupervisao-ocupacional-title">
+      Autosupervisão Ocupacional
+    </h1>
+
+    <p class="autosupervisao-ocupacional-description">
+      Preencha as seções abaixo com as informações da sua propriedade.
+      Todos os dados são salvos automaticamente no dispositivo.
+    </p>
+
+  </div>
+
+  <!-- LISTA DE CARDS -->
+
+  <!-- MORADIA -->
+  <div class="br-card autosupervisao-ocupacional-card">
+
+    <div class="autosupervisao-ocupacional-card-content">
+
+      <div class="autosupervisao-ocupacional-card-top">
+
+        <div class="autosupervisao-ocupacional-card-image-container">
+
+          <h3 class="autosupervisao-ocupacional-card-title">
+            MORADIA PRINCIPAL
+          </h3>
+
+          <img
+            src="images/moradia.png"
+            alt="Moradia Principal"
+            class="autosupervisao-ocupacional-card-image"
+          />
+
+        </div>
+
+        <div class="autosupervisao-ocupacional-card-text">
+          Informe se existe moradia no lote e suas características.
+        </div>
+
+      </div>
+
+      <div class="autosupervisao-ocupacional-card-footer">
+
+        <span class="autosupervisao-ocupacional-status-text">
+          Não informada
+        </span>
+
+        <button
+          class="br-button secondary autosupervisao-ocupacional-action-button"
+          type="button"
+          [routerLink]="['/autosupervisaoocupacional/preencherautosupervisao/moradia']"
+        >
+          Informar
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- PRODUÇÃO ANIMAL -->
+  <div class="br-card autosupervisao-ocupacional-card">
+
+    <div class="autosupervisao-ocupacional-card-content">
+
+      <div class="autosupervisao-ocupacional-card-top">
+
+        <div class="autosupervisao-ocupacional-card-image-container">
+
+          <h3 class="autosupervisao-ocupacional-card-title">
+            PRODUÇÃO ANIMAL
+          </h3>
+
+          <img
+            src="images/producao-animal.png"
+            alt="Produção Animal"
+            class="autosupervisao-ocupacional-card-image"
+          />
+
+        </div>
+
+        <div class="autosupervisao-ocupacional-card-text">
+          Informe os animais, criação e a produção pecuária.
+        </div>
+
+      </div>
+
+      <div class="autosupervisao-ocupacional-card-footer">
+
+        <span class="autosupervisao-ocupacional-status-text">
+          0 item(s) informados
+        </span>
+
+        <button
+          class="br-button secondary autosupervisao-ocupacional-action-button"
+          type="button"
+          [routerLink]="['/autosupervisaoocupacional/preencherautosupervisao/producaoanimal']"
+        >
+          Adicionar
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- PRODUÇÃO AGRÍCOLA -->
+  <div class="br-card autosupervisao-ocupacional-card">
+
+    <div class="autosupervisao-ocupacional-card-content">
+
+      <div class="autosupervisao-ocupacional-card-top">
+
+        <div class="autosupervisao-ocupacional-card-image-container">
+
+          <h3 class="autosupervisao-ocupacional-card-title">
+            PRODUÇÃO AGRÍCOLA
+          </h3>
+
+          <img
+            src="images/producao-agricola.png"
+            alt="Produção Agrícola"
+            class="autosupervisao-ocupacional-card-image"
+          />
+
+        </div>
+
+        <div class="autosupervisao-ocupacional-card-text">
+          Informe os cultivos, lavouras e produção vegetal.
+        </div>
+
+      </div>
+
+      <div class="autosupervisao-ocupacional-card-footer">
+
+        <span class="autosupervisao-ocupacional-status-text">
+          0 item(s) informados
+        </span>
+
+        <button
+          class="br-button secondary autosupervisao-ocupacional-action-button"
+          type="button"
+          [routerLink]="['/autosupervisaoocupacional/preencherautosupervisao/producaoagricola']"
+        >
+          Adicionar
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- BENFEITORIAS -->
+  <div class="br-card autosupervisao-ocupacional-card">
+
+    <div class="autosupervisao-ocupacional-card-content">
+
+      <div class="autosupervisao-ocupacional-card-top">
+
+        <div class="autosupervisao-ocupacional-card-image-container">
+
+          <h3 class="autosupervisao-ocupacional-card-title">
+            BENFEITORIAS
+          </h3>
+
+          <img
+            src="images/benfeitorias.png"
+            alt="Benfeitorias"
+            class="autosupervisao-ocupacional-card-image"
+          />
+
+        </div>
+
+        <div class="autosupervisao-ocupacional-card-text">
+          Informe as construções, equipamentos e benfeitorias.
+        </div>
+
+      </div>
+
+      <div class="autosupervisao-ocupacional-card-footer">
+
+        <span class="autosupervisao-ocupacional-status-text">
+          0 item(s) informados
+        </span>
+
+        <button
+          class="br-button secondary autosupervisao-ocupacional-action-button"
+          type="button"
+          [routerLink]="['/autosupervisaoocupacional/preencherautosupervisao/benfeitorias']"
+        >
+          Adicionar
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- DOCUMENTOS -->
+  <div class="br-card autosupervisao-ocupacional-card">
+
+    <div class="autosupervisao-ocupacional-card-content">
+
+      <div class="autosupervisao-ocupacional-card-top">
+
+        <div class="autosupervisao-ocupacional-card-image-container">
+
+          <h3 class="autosupervisao-ocupacional-card-title">
+            DOCUMENTOS
+          </h3>
+
+          <img
+            src="images/documentos.png"
+            alt="Documentos"
+            class="autosupervisao-ocupacional-card-image"
+          />
+
+        </div>
+
+        <div class="autosupervisao-ocupacional-card-text">
+          Anexe documentos comprobatórios (jpg, png, pdf).
+        </div>
+
+      </div>
+
+      <div class="autosupervisao-ocupacional-card-footer">
+
+        <span class="autosupervisao-ocupacional-status-text">
+          0 item(s) informados
+        </span>
+
+        <button
+          class="br-button secondary autosupervisao-ocupacional-action-button"
+          type="button"
+          [routerLink]="['/autosupervisaoocupacional/preencherautosupervisao/documentos']"
+        >
+          Adicionar
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- BOTÕES -->
+  <div class="autosupervisao-ocupacional-footer-actions">
+
+    <button
+      class="br-button secondary autosupervisao-ocupacional-footer-button"
+      type="button"
+      [routerLink]="['/autosupervisaoocupacional']"
+    >
+      Voltar
+    </button>
+
+    <button
+      class="br-button primary autosupervisao-ocupacional-footer-button"
+      type="button"
+      [routerLink]="['/autosupervisaoocupacional/preencherautosupervisao/revisar']"
+    >
+      Revisar e Enviar
+    </button>
+
+  </div>
+
+</div>

@@ -392,7 +392,7 @@ h2 {
 }
 
 .step-size {
-    height: 585px;
+    min-height: 585px; */
     overflow-y: auto;
 }
 

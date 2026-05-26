@@ -16,27 +16,33 @@ export class Home {
   serviceCards = [
     {
       title: 'Regularização Assistida',
-      icon: 'fas fa-map-marked-alt'
+      icon: 'fas fa-map-marked-alt',
+      url: '/regularizacaoassistida/'
     },
     {
       title: 'Autossupervisão Ocupacional',
-      icon: 'fas fa-eye'
+      icon: 'fas fa-eye',
+      url: '/autosupervisaoocupacional/'
     },
     {
       title: 'Caixa Postal',
-      icon: 'fas fa-bell'
+      icon: 'fas fa-bell',
+      url: ''
     },
     {
       title: 'Resolver Pendências',
-      icon: 'fas fa-calendar-check'
+      icon: 'fas fa-calendar-check',
+      url: ''
     },
     {
       title: 'Acompanhamento de Serviços',
-      icon: 'fas fa-map-marker-alt'
+      icon: 'fas fa-map-marker-alt',
+      url: ''
     },
     {
       title: 'Regularização de Ocupantes',
-      icon: 'fas fa-users'
+      icon: 'fas fa-users',
+      url: ''
     }
   ];
 

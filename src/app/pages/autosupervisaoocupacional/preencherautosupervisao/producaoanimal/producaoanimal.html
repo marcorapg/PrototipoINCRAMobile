@@ -1,0 +1,135 @@
+<app-pageheader title="Produção Animal" backLink="/autosupervisaoocupacional/preencherautosupervisao"></app-pageheader>
+
+<div class="producao-animal-page">
+
+    <!-- HEADER -->
+    <div class="producao-animal-header">
+
+        <h1 class="producao-animal-title">
+            Produção Animal
+        </h1>
+
+        <p class="producao-animal-description">
+            Informe os dados da produção animal e capture ao menos uma foto
+            para identificação.
+        </p>
+
+    </div>
+
+    <!-- CARD FORM -->
+    <div class="br-card producao-animal-card">
+
+        <div class="producao-animal-card-content">
+
+            <h2 class="producao-animal-card-title">
+                Dados da produção animal
+            </h2>
+
+            <!-- SELECT -->
+            <div class="producao-animal-field-group">
+
+                <label class="producao-animal-field-label" for="tipoProducaoAnimal">
+                    Tipo de produção animal
+                </label>
+
+                <br-select [options]="tipoProducaoAnimalOptions" id="tipoProducaoAnimal" placeholder="Selecione tipo"
+                    (valueChange)="onTipoProducaoAnimalChange($event)">
+                </br-select>
+
+            </div>
+
+            <!-- DESCRIÇÃO -->
+            <div class="producao-animal-field-group">
+
+                <label class="producao-animal-field-label" for="descricaoProducaoAnimal">
+                    Descrição
+                </label>
+
+                <textarea id="descricaoProducaoAnimal" class="producao-animal-textarea" rows="3"
+                    placeholder="Descreva a produção animal" [(ngModel)]="descricao">
+        </textarea>
+
+            </div>
+
+            <!-- QUANTIDADE -->
+            <div class="producao-animal-field-group">
+
+                <label class="producao-animal-field-label" for="numeroAnimais">
+                    Número de animais
+                </label>
+
+                <input id="numeroAnimais" type="number" class="producao-animal-input" [(ngModel)]="numeroAnimais" />
+
+            </div>
+
+            <!-- FOTO -->
+            <button class="br-button secondary producao-animal-capture-button" type="button">
+                <i class="fas fa-camera"></i>
+
+                Capturar Foto
+            </button>
+
+            <!-- SALVAR -->
+            <button class="br-button primary producao-animal-save-button" type="button" [disabled]="!formularioValido"
+                (click)="salvarItem()">
+                Salvar
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- LISTA -->
+    <div class="producao-animal-lista-container" *ngIf="itensProducaoAnimal.length > 0">
+
+        <div class="br-card producao-animal-lista-card" *ngFor="let item of itensProducaoAnimal; let i = index">
+
+            <div class="producao-animal-lista-content">
+
+                <!-- THUMB -->
+                <img src="/images/cabecas-gado.png" alt="Produção Animal" class="producao-animal-thumbnail" />
+
+                <!-- INFO -->
+                <div class="producao-animal-lista-info">
+
+                    <div class="producao-animal-lista-header">
+
+                        <div class="producao-animal-lista-titulo">
+                            {{ item.tipo }}
+                        </div>
+
+                        <!-- EXCLUIR -->
+                        <button class="br-button circle small secondary producao-animal-delete-button" type="button"
+                            (click)="removerItem(i)">
+                            <i class="fas fa-trash"></i>
+                        </button>
+
+                    </div>
+
+                    <div class="producao-animal-lista-texto">
+                        {{ item.descricao }}
+                    </div>
+
+                    <div class="producao-animal-lista-quantidade">
+                        Quantidade: {{ item.quantidade }}
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- FOOTER -->
+    <div class="producao-animal-footer-actions">
+
+        <button class="br-button secondary producao-animal-footer-button" type="button"
+            [routerLink]="['/autosupervisaoocupacional/preencherautosupervisao']">
+            Voltar
+        </button>
+
+    </div>
+
+</div>

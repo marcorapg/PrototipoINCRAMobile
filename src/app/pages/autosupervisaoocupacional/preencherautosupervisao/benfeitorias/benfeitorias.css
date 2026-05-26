@@ -1,0 +1,233 @@
+.benfeitorias-page {
+    width: 100%;
+    max-width: 480px;
+    margin: 0 auto;
+
+    padding: 16px;
+    background: #f5f5f5;
+
+    min-height: 100vh;
+}
+
+/* HEADER */
+
+.benfeitorias-header {
+    margin-bottom: 20px;
+}
+
+.benfeitorias-title {
+    margin: 0 0 12px;
+
+    font-size: 2.2rem;
+    font-weight: 500;
+    line-height: 1.2;
+
+    color: #333333;
+}
+
+.benfeitorias-description {
+    margin: 0;
+
+    font-size: 1rem;
+    line-height: 1.5;
+
+    color: #555555;
+}
+
+/* CARD */
+
+.benfeitorias-card {
+    border-radius: 6px;
+}
+
+.benfeitorias-card-content {
+    padding: 20px 16px;
+}
+
+.benfeitorias-card-title {
+    margin: 0 0 24px;
+
+    font-size: 1.9rem;
+    font-weight: 700;
+    line-height: 1.2;
+
+    color: #1351b4;
+}
+
+/* FIELDS */
+
+.benfeitorias-field-group {
+    margin-bottom: 24px;
+}
+
+.benfeitorias-field-label {
+    display: block;
+
+    margin-bottom: 12px;
+
+    font-size: 1rem;
+    font-weight: 600;
+
+    color: #333333;
+}
+
+/* TEXTAREA */
+
+.benfeitorias-textarea {
+    width: 100%;
+
+    padding: 14px 16px;
+
+    border: 1px solid #888888;
+    border-radius: 4px;
+
+    font-size: 1rem;
+    line-height: 1.5;
+
+    resize: vertical;
+
+    background: #ffffff;
+}
+
+/* FOTO */
+
+.benfeitorias-capture-button {
+    width: 100%;
+    height: 52px;
+
+    border-radius: 999px;
+
+    justify-content: center;
+    gap: 10px;
+
+    font-size: 1rem;
+    font-weight: 600;
+
+    margin-bottom: 16px;
+}
+
+/* SALVAR */
+
+.benfeitorias-save-button {
+    width: 100%;
+    height: 52px;
+
+    border-radius: 999px;
+
+    justify-content: center;
+
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.benfeitorias-save-button:disabled {
+    background: #9db7e5;
+    border-color: #9db7e5;
+
+    color: #ffffff;
+
+    opacity: 1;
+}
+
+/* LISTA */
+
+.benfeitorias-lista-container {
+    margin-top: 20px;
+}
+
+.benfeitorias-lista-card {
+    margin-bottom: 16px;
+    border-radius: 6px;
+}
+
+.benfeitorias-lista-content {
+    display: flex;
+    gap: 16px;
+
+    padding: 16px;
+}
+
+.benfeitorias-thumbnail {
+    width: 88px;
+    height: 88px;
+
+    border-radius: 6px;
+
+    object-fit: cover;
+}
+
+.benfeitorias-lista-info {
+    flex: 1;
+}
+
+.benfeitorias-lista-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+
+    margin-bottom: 8px;
+}
+
+.benfeitorias-lista-titulo {
+    font-size: 1rem;
+    font-weight: 700;
+
+    color: #1351b4;
+}
+
+.benfeitorias-lista-texto {
+    font-size: 0.95rem;
+    line-height: 1.5;
+
+    color: #444444;
+}
+
+/* EXCLUIR */
+
+.benfeitorias-delete-button {
+    flex-shrink: 0;
+
+    color: #c10007;
+}
+
+/* FOOTER */
+
+.benfeitorias-footer-actions {
+    margin-top: 16px;
+}
+
+.benfeitorias-footer-button {
+    min-width: 100px;
+    height: 52px;
+
+    border-radius: 999px;
+
+    justify-content: center;
+
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+/* MOBILE */
+
+@media (max-width: 360px) {
+
+    .benfeitorias-title {
+        font-size: 1.9rem;
+    }
+
+    .benfeitorias-card-title {
+        font-size: 1.6rem;
+    }
+
+    .benfeitorias-lista-content {
+        flex-direction: column;
+    }
+
+    .benfeitorias-thumbnail {
+        width: 100%;
+        height: 160px;
+    }
+
+}

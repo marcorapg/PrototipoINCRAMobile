@@ -1,0 +1,161 @@
+.moradia-page {
+    width: 100%;
+    max-width: 480px;
+    margin: 0 auto;
+
+    padding: 16px;
+    background: #f5f5f5;
+
+    min-height: 100vh;
+}
+
+/* HEADER */
+
+.moradia-header {
+    margin-bottom: 20px;
+}
+
+.moradia-title {
+    margin: 0 0 12px;
+
+    font-size: 2.2rem;
+    font-weight: 500;
+    line-height: 1.2;
+
+    color: #333333;
+}
+
+.moradia-description {
+    margin: 0;
+
+    font-size: 1rem;
+    line-height: 1.5;
+
+    color: #555555;
+}
+
+/* CARD */
+
+.moradia-card {
+    border-radius: 6px;
+}
+
+.moradia-card-content {
+    padding: 20px 16px;
+}
+
+.moradia-card-title {
+    margin: 0 0 24px;
+
+    font-size: 1.9rem;
+    font-weight: 700;
+    line-height: 1.2;
+
+    color: #1351b4;
+}
+
+/* FIELDS */
+
+.moradia-field-group {
+    margin-bottom: 24px;
+}
+
+.moradia-field-label {
+    display: block;
+
+    margin-bottom: 12px;
+
+    font-size: 1rem;
+    font-weight: 600;
+
+    color: #333333;
+}
+
+/* RADIO */
+
+.moradia-radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* TEXTAREA */
+
+.moradia-textarea {
+    width: 100%;
+
+    padding: 14px 16px;
+
+    border: 1px solid #888888;
+    border-radius: 4px;
+
+    font-size: 1rem;
+    line-height: 1.5;
+
+    resize: vertical;
+
+    background: #ffffff;
+}
+
+.moradia-textarea::placeholder {
+    color: #666666;
+}
+
+/* BUTTON FOTO */
+
+.moradia-capture-button {
+    width: 100%;
+    height: 52px;
+
+    border-radius: 999px;
+
+    justify-content: center;
+    gap: 10px;
+
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+/* FOOTER */
+
+.moradia-footer-actions {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+
+    margin-top: 24px;
+}
+
+.moradia-footer-button {
+    flex: 1;
+    height: 52px;
+
+    border-radius: 999px;
+
+    justify-content: center;
+
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+/* BOTÃO DESABILITADO */
+
+.br-button.primary:disabled {
+    background: #9db7e5;
+    border-color: #9db7e5;
+    color: #ffffff; 
+}
+
+/* MOBILE */
+
+@media (max-width: 360px) {
+
+    .moradia-title {
+        font-size: 1.9rem;
+    }
+
+    .moradia-card-title {
+        font-size: 1.6rem;
+    }
+
+}
