@@ -1,66 +1,74 @@
 import { CommonModule } from '@angular/common';
 import { AfterViewInit, Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
-import { BrSelect } from '@govbr-ds/webcomponents-angular/standalone';
 import { Pageheader } from '../../../../componentes/pageheader/pageheader';
 import { FormsModule } from '@angular/forms';
+import { Gridfotos } from '../../../../componentes/gridfotos/gridfotos';
+import { RouterLink } from "@angular/router";
 
 @Component({
   selector: 'app-producaoagricola',
-  imports: [Pageheader, RouterLink, BrSelect, CommonModule, FormsModule],
+  imports: [Pageheader, Gridfotos, CommonModule, FormsModule],
   templateUrl: './producaoagricola.html',
   styleUrl: './producaoagricola.css',
 })
 export class Producaoagricola implements AfterViewInit {
 
-  tipoCulturaSelecionado = '';
-
-  descricao = '';
-
-  areaUtilizada: number | null = null;
-
-  itensProducao: any[] = [];
-
-  tipoCulturaAgricolaOptions = [
+  plantas = [
     {
-      label: 'Milho',
-      value: 'Milho',
-      selected: false
+      id: 1,
+      titulo: 'Mandioca',
+      imagem: 'assets/images/plantas-grid-mandioca.png'
     },
     {
-      label: 'Soja',
-      value: 'Soja',
-      selected: false
+      id: 2,
+      titulo: 'Milho',
+      imagem: 'assets/images/plantas-grid-milho.png'
     },
     {
-      label: 'Tomate',
-      value: 'Tomate',
-      selected: false
+      id: 3,
+      titulo: 'Cana-de-açucar',
+      imagem: 'assets/images/plantas-grid-cana.png'
     },
     {
-      label: 'Café',
-      value: 'Café',
-      selected: false
+      id: 4,
+      titulo: 'Banana',
+      imagem: 'assets/images/plantas-grid-banana.png'
     },
     {
-      label: 'Feijão',
-      value: 'Feijão',
-      selected: false
+      id: 5,
+      titulo: 'Feijão',
+      imagem: 'assets/images/plantas-grid-feijao.png'
     },
     {
-      label: 'Cana-de-açúcar',
-      value: 'Cana-de-açúcar',
-      selected: false
+      id: 6,
+      titulo: 'Café',
+      imagem: 'assets/images/plantas-grid-cafe.png'
     },
     {
-      label: 'Alface',
-      value: 'Alface',
-      selected: false
+      id: 7,
+      titulo: 'Arroz',
+      imagem: 'assets/images/plantas-grid-arroz.png'
     },
     {
-      label: 'Batata',
-      value: 'Batata',
-      selected: false
+      id: 8,
+      titulo: 'Abóbora',
+      imagem: 'assets/images/plantas-grid-abobora.png'
+    },
+    {
+      id: 9,
+      titulo: 'Hortaliças',
+      imagem: 'assets/images/plantas-grid-hortalicas.png'
+    },
+    {
+      id: 10,
+      titulo: 'Maracujá',
+      imagem: 'assets/images/plantas-grid-maracuja.png'
+    },
+    {
+      id: 11,
+      titulo: 'Outros',
+      imagem: 'assets/images/plantas-grid-outros.png',
+      isOutros: true
     }
   ];
 
@@ -69,45 +77,5 @@ export class Producaoagricola implements AfterViewInit {
       top: 0,
       behavior: 'smooth'
     });
-  }
-
-  onTipoCulturaChange(event: any): void {
-    this.tipoCulturaSelecionado =
-      event.target.value;
-  }
-
-  get formularioValido(): boolean {
-
-    return (
-      this.tipoCulturaSelecionado.trim() !== '' &&
-      this.descricao.trim() !== '' &&
-      this.areaUtilizada !== null &&
-      this.areaUtilizada > 0
-    );
-
-  }
-
-  salvarItem(): void {
-
-    if (!this.formularioValido) {
-      return;
-    }
-
-    this.itensProducao.push({
-      tipo: this.tipoCulturaSelecionado,
-      descricao: this.descricao,
-      area: this.areaUtilizada
-    });
-
-    this.tipoCulturaSelecionado = '';
-    this.descricao = '';
-    this.areaUtilizada = null;
-
-  }
-
-  removerItem(index: number): void {
-
-    this.itensProducao.splice(index, 1);
-
   }
 }

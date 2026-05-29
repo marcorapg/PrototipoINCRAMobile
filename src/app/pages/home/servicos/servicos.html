@@ -1,0 +1,27 @@
+<app-pageheader title="Serviços" backLink="/"></app-pageheader>
+
+<div class="services-section">
+
+    <div class="section-header">
+
+        <h2 class="section-title">
+            Todos Serviços Disponíveis
+        </h2>
+
+    </div>
+
+    <div class="home-grid">
+
+        <button *ngFor="let card of serviceCards" class="feature-card br-button secondary" routerLink="{{ card.url }}">
+
+            <i [class]="card.icon + ' feature-icon'"></i>
+
+            <span class="feature-title" style="white-space: pre-line;">
+                {{ card.title }}
+            </span>
+
+        </button>
+
+    </div>
+
+</div>

@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 
@@ -13,37 +13,53 @@ declare const core: any;
 })
 
 export class Home {
-  serviceCards = [
+  @ViewChild('carousel')
+  carousel!: ElementRef;
+
+  principaisServicos = [
     {
-      title: 'Regularização Assistida',
-      icon: 'fas fa-map-marked-alt',
-      url: '/regularizacaoassistida/'
+      titulo: 'Solicitar Regularização',
+      icone: 'fas fa-map-marked-alt',
+      url: '/regularizacaoassistida'
     },
     {
-      title: 'Autossupervisão Ocupacional',
-      icon: 'fas fa-eye',
-      url: '/autosupervisaoocupacional/'
+      titulo: 'Autossupervisão Ocupacional',
+      icone: 'fas fa-eye',
+      url: '/autosupervisaoocupacional'
     },
     {
-      title: 'Caixa Postal',
-      icon: 'fas fa-bell',
-      url: ''
+      titulo: 'Caixa Postal',
+      icone: 'fas fa-envelope',
+      url: '/caixa-postal'
     },
     {
-      title: 'Resolver Pendências',
-      icon: 'fas fa-calendar-check',
-      url: ''
+      titulo: 'Resolver Pendências',
+      icone: 'fas fa-exclamation-circle',
+      url: '/resolver-pendencias'
     },
     {
-      title: 'Acompanhamento de Serviços',
-      icon: 'fas fa-map-marker-alt',
-      url: ''
+      titulo: 'Acompanhamento de Serviços',
+      icone: 'fas fa-location-arrow',
+      url: '/acompanhamento-servicos'
     },
     {
-      title: 'Regularização de Ocupantes',
-      icon: 'fas fa-users',
-      url: ''
+      titulo: 'Regularização de Ocupantes',
+      icone: 'fas fa-users',
+      url: '/regularizacao-ocupantes'
     }
   ];
+
+  scrollCarousel(direction: 'left' | 'right'): void {
+
+    const scrollAmount = 180;
+
+    this.carousel.nativeElement.scrollBy({
+      left: direction === 'right'
+        ? scrollAmount
+        : -scrollAmount,
+      behavior: 'smooth'
+    });
+
+  }
 
 }

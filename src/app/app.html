@@ -7,7 +7,7 @@
     <h2>Menu</h2>
   </div>
   <div class="menu-list">
-    <button *ngFor="let item of sideMenuItems" class="menu-item br-button tertiary">
+    <button *ngFor="let item of sideMenuItems" class="menu-item br-button tertiary" [routerLink]="item.url" (click)="closeMenu()">
       <i [class]="item.icon"></i>
       <span>
         {{ item.title }}

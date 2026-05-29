@@ -1,28 +1,83 @@
-<div class="services-section">
+<div class="incra-cidadao-home-page">
 
-    <div class="section-header">
+    <!-- BANNER -->
+    <div class="incra-cidadao-home-banner">
 
-        <h2 class="section-title">
-            Serviços
-        </h2>
-
-        <a href="#" class="section-link">
-            Todos os serviços <span>&gt;</span>
-        </a>
+        <img src="assets/images/banner.png" alt="INCRA" class="incra-cidadao-home-banner-image" />
 
     </div>
 
-    <div class="home-grid">
+    <!-- CARD SOBRE -->
+    <div class="br-card incra-cidadao-home-about-card">
 
-        <button *ngFor="let card of serviceCards" class="feature-card br-button secondary" routerLink="{{ card.url }}">
+        <div class="incra-cidadao-home-about-content">
 
-            <i [class]="card.icon + ' feature-icon'"></i>
+            <h1 class="incra-cidadao-home-title">
+                App Cidadão do INCRA
+            </h1>
 
-            <span class="feature-title" style="white-space: pre-line;">
-                {{ card.title }}
-            </span>
+            <p class="incra-cidadao-home-text">
+                O aplicativo permite que assentados realizem serviços digitais
+                relacionados à regularização ocupacional, acompanhamento de
+                solicitações e envio de informações da propriedade rural.
+            </p>
 
-        </button>
+        </div>
+
+    </div>
+
+    <!-- SERVIÇOS -->
+    <div class="incra-cidadao-home-services-section">
+
+        <!-- HEADER -->
+        <div class="incra-cidadao-home-section-header">
+
+            <h2 class="incra-cidadao-home-section-title">
+                Principais Serviços
+            </h2>
+
+            <button class="br-button tertiary small incra-cidadao-home-all-services-button" type="button"
+                [routerLink]="['servicos']">
+                Todos serviços >
+            </button>
+
+        </div>
+
+        <!-- WRAPPER -->
+        <div class="incra-cidadao-home-carousel-wrapper">
+
+            <!-- BOTÃO ESQUERDA -->
+            <button class="incra-cidadao-home-carousel-arrow left" type="button" (click)="scrollCarousel('left')">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+
+            <!-- CARROSSEL -->
+            <div #carousel class="incra-cidadao-home-carousel">
+
+                <!-- CARD -->
+                <button *ngFor="let servico of principaisServicos" class="incra-cidadao-home-service-card" type="button"
+                    [routerLink]="servico.url">
+
+                    <div class="incra-cidadao-home-service-icon">
+
+                        <i [class]="servico.icone"></i>
+
+                    </div>
+
+                    <span class="incra-cidadao-home-service-label">
+                        {{ servico.titulo }}
+                    </span>
+
+                </button>
+
+            </div>
+
+            <!-- BOTÃO DIREITA -->
+            <button class="incra-cidadao-home-carousel-arrow right" type="button" (click)="scrollCarousel('right')">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+
+        </div>
 
     </div>
 

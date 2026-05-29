@@ -10,6 +10,7 @@ import { Producaoagricola } from './pages/autosupervisaoocupacional/preencheraut
 import { Benfeitorias } from './pages/autosupervisaoocupacional/preencherautosupervisao/benfeitorias/benfeitorias';
 import { Documentos } from './pages/autosupervisaoocupacional/preencherautosupervisao/documentos/documentos';
 import { Revisar } from './pages/autosupervisaoocupacional/preencherautosupervisao/revisar/revisar';
+import { Servicos } from './pages/home/servicos/servicos';
 
 export const routes: Routes = [
     { path: '', component: Home },
@@ -22,5 +23,6 @@ export const routes: Routes = [
     { path: 'autosupervisaoocupacional/preencherautosupervisao/producaoagricola', component: Producaoagricola },
     { path: 'autosupervisaoocupacional/preencherautosupervisao/benfeitorias', component: Benfeitorias },
     { path: 'autosupervisaoocupacional/preencherautosupervisao/documentos', component: Documentos },
-    { path: 'autosupervisaoocupacional/preencherautosupervisao/revisar', component: Revisar }
+    { path: 'autosupervisaoocupacional/preencherautosupervisao/revisar', component: Revisar },
+    { path: 'servicos', component: Servicos }
 ];

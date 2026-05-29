@@ -1,19 +1,7 @@
-<app-pageheader title="Moradia Principal" backLink="/autosupervisaoocupacional/preencherautosupervisao"></app-pageheader>
+<app-pageheader title="Moradia Principal"
+    backLink="/autosupervisaoocupacional/preencherautosupervisao"></app-pageheader>
 
 <div class="moradia-page">
-
-    <!-- HEADER -->
-    <div class="moradia-header">
-
-        <h1 class="moradia-title">
-            Moradia
-        </h1>
-
-        <p class="moradia-description">
-            Informe se existe moradia no lote e suas características.
-        </p>
-
-    </div>
 
     <!-- CARD -->
     <div class="br-card moradia-card">
@@ -24,8 +12,14 @@
                 Dados da Moradia
             </h2>
 
+            <div class="mb-3">
+                <p class="moradia-description">
+                    Informe se existe moradia no lote e suas características.
+                </p>
+            </div>
+
             <!-- RADIO -->
-            <div class="moradia-field-group">
+            <div class="mt-3" class="moradia-field-group">
 
                 <label class="moradia-field-label">
                     Existe moradia no lote?*
@@ -58,33 +52,12 @@
             <!-- CAMPOS EXIBIDOS APENAS SE SIM -->
             <div *ngIf="possuiMoradia">
 
-                <!-- TIPO CONSTRUTIVO -->
-                <div class="moradia-field-group">
-
-                    <label class="moradia-field-label" for="tipoConstrutivo">
-                        Tipo Construtivo
-                    </label>
-
-                    <br-select [options]="tipoConstrutivoOptions" id="tipoConstrutivo" placeholder="Selecione tipo">
-                    </br-select>
-
-                </div>
-
-                <!-- DESCRIÇÃO -->
-                <div class="moradia-field-group">
-
-                    <label class="moradia-field-label" for="descricaoMoradia">
-                        Descrição
-                    </label>
-
-                    <textarea id="descricaoMoradia" class="moradia-textarea" rows="3"
-                        placeholder="Informações adicionais sobre a moradia" [(ngModel)]="descricao">
-          </textarea>
-
-                </div>
+                <img class="mb-3" src="assets/images/foto-moradia.png" alt="Foto Moradia"
+                    [hidden]="esconderFotoMoradia" />
 
                 <!-- FOTO -->
-                <button class="br-button secondary moradia-capture-button" type="button">
+                <button class="br-button secondary moradia-capture-button" type="button"
+                    (click)="esconderFotoMoradia = false;">
                     <i class="fas fa-camera"></i>
 
                     Capturar Foto
@@ -99,11 +72,13 @@
     <!-- FOOTER -->
     <div class="moradia-footer-actions">
 
-        <button class="br-button secondary moradia-footer-button" type="button" [routerLink]="['/autosupervisaoocupacional/preencherautosupervisao']">
+        <button class="br-button secondary moradia-footer-button" type="button"
+            [routerLink]="['/autosupervisaoocupacional/preencherautosupervisao']">
             Voltar
         </button>
 
-        <button class="br-button primary moradia-footer-button" type="button">
+        <button class="br-button primary moradia-footer-button" type="button"
+            [routerLink]="['/autosupervisaoocupacional/preencherautosupervisao']">
             Salvar
         </button>
 

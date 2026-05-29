@@ -1,0 +1,363 @@
+/* animal-upload-grid.component.scss */
+
+.upload-grid-page {
+    width: 100%;
+    max-width: 480px;
+
+    margin: 0 auto;
+
+    padding: 16px;
+
+    /* background: #f5f5f5; */
+
+    /* min-height: 100vh; */
+}
+
+/* HEADER */
+
+.upload-grid-header {
+    margin-bottom: 20px;
+}
+
+.upload-grid-title {
+    margin: 0 0 8px;
+
+    font-size: 1.8rem;
+    font-weight: 700;
+    line-height: 1.2;
+
+    color: #1f3b6d;
+}
+
+.upload-grid-description {
+    margin: 0;
+
+    font-size: 0.95rem;
+    line-height: 1.5;
+
+    color: #666666;
+}
+
+/* GRID */
+
+.upload-grid-container {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 14px;
+}
+
+/* CARD */
+
+/* CARD */
+
+.upload-grid-card {
+    position: relative;
+
+    min-height: 100px;
+    /* antes 160px */
+
+    padding: 10px 8px;
+
+    border: 2px solid #c7dfcf;
+    border-radius: 16px;
+
+    background: #ffffff;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.upload-grid-card:hover {
+    transform: translateY(-2px);
+
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+/* CHECK */
+
+.upload-grid-check {
+    position: absolute;
+
+    top: 8px;
+    right: 8px;
+
+    width: 24px;
+    height: 24px;
+
+    border-radius: 50%;
+
+    background: #2e9d44;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #ffffff;
+
+    font-size: 0.75rem;
+}
+
+/* IMAGE */
+
+.upload-grid-image {
+    width: 64px;
+    height: 64px;
+
+    object-fit: contain;
+}
+
+/* TITLE */
+
+.upload-grid-card-title {
+    text-align: center;
+
+    font-size: 0.8rem;
+    font-weight: 700;
+    line-height: 1.2;
+
+    color: #1f1f1f;
+}
+
+/* UPLOAD SCREEN */
+
+.upload-photo-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    gap: 12px;
+
+    margin-bottom: 20px;
+}
+
+/* BACK */
+
+.upload-photo-back-button {
+    width: 40px;
+    height: 40px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: #eef4ef;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #5b8c63;
+
+    flex-shrink: 0;
+
+    cursor: pointer;
+}
+
+.upload-photo-header-info {
+    flex: 1;
+}
+
+/* TITLE */
+
+.upload-photo-title {
+    margin: 0 0 6px;
+
+    font-size: 1.7rem;
+    font-weight: 700;
+
+    color: #1f3b2d;
+}
+
+/* DESCRIPTION */
+
+.upload-photo-description {
+    margin: 0;
+
+    font-size: 0.95rem;
+
+    color: #7a8a7d;
+}
+
+/* IMAGE */
+
+.upload-photo-header-image {
+    width: 48px;
+    height: 48px;
+
+    object-fit: contain;
+}
+
+.upload-photo-card {
+    position: relative;
+
+    width: 100%;
+    height: 260px;
+
+    overflow: hidden;
+
+    border: 2px dashed #2e9d44;
+    border-radius: 24px;
+
+    background: #edf3ee;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+}
+
+.upload-photo-empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 100%;
+}
+
+.upload-photo-preview-image {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+/* ÍCONE */
+
+.upload-photo-icon {
+    width: 72px;
+    height: 72px;
+
+    margin-bottom: 18px;
+
+    border-radius: 50%;
+
+    background: #2e9d44;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #ffffff;
+
+    font-size: 2rem;
+}
+
+/* TITLE */
+
+.upload-photo-card-title {
+    margin-bottom: 10px;
+
+    text-align: center;
+
+    font-size: 1.4rem;
+    font-weight: 700;
+
+    color: #2e8f43;
+}
+
+/* SUBTITLE */
+
+.upload-photo-card-subtitle {
+    text-align: center;
+
+    font-size: 0.95rem;
+
+    color: #8a9c8d;
+}
+
+/* ACTIONS */
+
+.upload-photo-actions {
+    display: flex;
+
+    gap: 16px;
+}
+
+/* BUTTON */
+
+.upload-photo-action-button {
+    flex: 1;
+
+    height: 52px;
+
+    border-radius: 999px;
+
+    justify-content: center;
+
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+/* DISABLED */
+
+.upload-photo-action-button:disabled {
+    background: #d9e5da;
+    border-color: #d9e5da;
+
+    color: #8ca08f;
+
+    opacity: 1;
+}
+
+/* MOBILE */
+
+@media (max-width: 360px) {
+
+    .upload-grid-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .upload-grid-card {
+        min-height: 145px;
+    }
+
+}
+
+/* NOVO CAMPO */
+
+.upload-photo-field-group {
+    margin-bottom: 16px;
+}
+
+.upload-photo-label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    font-size: 0.95rem;
+    font-weight: 600;
+
+    color: #333333;
+}
+
+.upload-photo-input {
+    width: 100%;
+    height: 48px;
+
+    padding: 0 14px;
+
+    border: 1px solid #d0d7de;
+    border-radius: 12px;
+
+    background: #ffffff;
+
+    font-size: 1rem;
+}

@@ -4,62 +4,73 @@ import { BrInput, BrSelect } from '@govbr-ds/webcomponents-angular/standalone';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
+import { Gridfotos } from '../../../../componentes/gridfotos/gridfotos';
 
 @Component({
   selector: 'app-benfeitorias',
-  imports: [Pageheader, BrSelect, CommonModule, FormsModule, RouterLink],
+  imports: [Pageheader, CommonModule, FormsModule, Gridfotos],
   templateUrl: './benfeitorias.html',
   styleUrl: './benfeitorias.css',
 })
 
 export class Benfeitorias implements AfterViewInit {
 
-  tipoBenfeitoriaSelecionado = '';
-
-  descricao = '';
-
-  itensBenfeitorias: any[] = [];
-
-  tipoBenfeitoriaOptions = [
+  benfeitorias = [
     {
-      label: 'Curral',
-      value: 'Curral',
-      selected: false
+      id: 1,
+      titulo: 'Casa',
+      imagem: 'assets/images/benfeitorias-grid-casa.png'
     },
     {
-      label: 'Galpão',
-      value: 'Galpão',
-      selected: false
+      id: 2,
+      titulo: 'Curral',
+      imagem: 'assets/images/benfeitorias-grid-curral.png'
     },
     {
-      label: 'Cisterna',
-      value: 'Cisterna',
-      selected: false
+      id: 3,
+      titulo: 'Galinheiro',
+      imagem: 'assets/images/benfeitorias-grid-galinheiro.png'
     },
     {
-      label: 'Cerca',
-      value: 'Cerca',
-      selected: false
+      id: 4,
+      titulo: 'Chiqueiro',
+      imagem: 'assets/images/benfeitorias-grid-chiqueiro.png'
     },
     {
-      label: 'Poço Artesiano',
-      value: 'Poço Artesiano',
-      selected: false
+      id: 5,
+      titulo: 'Cerca',
+      imagem: 'assets/images/benfeitorias-grid-cerca.png'
     },
     {
-      label: 'Silo',
-      value: 'Silo',
-      selected: false
+      id: 6,
+      titulo: 'Poço',
+      imagem: 'assets/images/benfeitorias-grid-poco.png'
     },
     {
-      label: 'Estábulo',
-      value: 'Estábulo',
-      selected: false
+      id: 7,
+      titulo: 'Açude',
+      imagem: 'assets/images/benfeitorias-grid-acude.png'
     },
     {
-      label: 'Barracão',
-      value: 'Barracão',
-      selected: false
+      id: 8,
+      titulo: 'Estufa',
+      imagem: 'assets/images/benfeitorias-grid-estufa.png'
+    },
+    {
+      id: 9,
+      titulo: 'Depósito',
+      imagem: 'assets/images/benfeitorias-grid-deposito.png'
+    },
+    {
+      id: 10,
+      titulo: 'Paiol',
+      imagem: 'assets/images/benfeitorias-grid-paiol.png'
+    },
+    {
+      id: 11,
+      titulo: 'Outros',
+      imagem: 'assets/images/benfeitorias-grid-outros.png',
+      isOutros: true
     }
   ];
 
@@ -68,43 +79,5 @@ export class Benfeitorias implements AfterViewInit {
       top: 0,
       behavior: 'smooth'
     });
-  }
-
-  onTipoBenfeitoriaChange(event: any): void {
-
-    this.tipoBenfeitoriaSelecionado =
-      event.target.value;
-
-  }
-
-  get formularioValido(): boolean {
-
-    return (
-      this.tipoBenfeitoriaSelecionado.trim() !== '' &&
-      this.descricao.trim() !== ''
-    );
-
-  }
-
-  salvarItem(): void {
-
-    if (!this.formularioValido) {
-      return;
-    }
-
-    this.itensBenfeitorias.push({
-      tipo: this.tipoBenfeitoriaSelecionado,
-      descricao: this.descricao
-    });
-
-    this.tipoBenfeitoriaSelecionado = '';
-    this.descricao = '';
-
-  }
-
-  removerItem(index: number): void {
-
-    this.itensBenfeitorias.splice(index, 1);
-
   }
 }

@@ -1,5 +1,5 @@
 import { Component, signal, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterLink, RouterOutlet } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { BrButton, BrHeader, BrIcon, BrInput, BrSignIn } from '@govbr-ds/webcomponents-angular/standalone';
@@ -8,7 +8,7 @@ declare const core: any;
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, FormsModule, CommonModule, BrHeader, BrIcon, BrButton, BrSignIn, BrInput],
+  imports: [RouterOutlet, FormsModule, CommonModule, BrHeader, BrIcon, BrButton, BrSignIn, BrInput, RouterLink],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './app.html',
   styleUrl: './app.css'
@@ -52,7 +52,8 @@ export class App {
   sideMenuItems = [
     {
       title: 'Página Inicial',
-      icon: 'fas fa-house'
+      icon: 'fas fa-house',
+      url: '/'
     },
     {
       title: 'Caixa Postal',
@@ -60,7 +61,8 @@ export class App {
     },
     {
       title: 'Serviços',
-      icon: 'fas fa-briefcase'
+      icon: 'fas fa-briefcase',
+      url: '/servicos'
     },
     {
       title: 'Perfil',

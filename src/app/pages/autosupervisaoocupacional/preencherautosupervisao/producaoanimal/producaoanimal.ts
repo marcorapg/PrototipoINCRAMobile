@@ -1,67 +1,76 @@
 import { AfterViewInit, Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
-import { BrSelect } from '@govbr-ds/webcomponents-angular/standalone';
 import { Pageheader } from '../../../../componentes/pageheader/pageheader';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { Gridfotos } from '../../../../componentes/gridfotos/gridfotos';
 
 
 @Component({
   selector: 'app-producaoanimal',
-  imports: [RouterLink, BrSelect, Pageheader, CommonModule, FormsModule],
+  imports: [Pageheader, CommonModule, FormsModule, Gridfotos],
   templateUrl: './producaoanimal.html',
   styleUrl: './producaoanimal.css',
 })
 export class Producaoanimal implements AfterViewInit {
 
-  tipoProducaoAnimalSelecionado = '';
+  // componente pai
 
-  descricao = '';
-
-  numeroAnimais: number | null = null;
-
-  itensProducaoAnimal: any[] = [];
-
-  tipoProducaoAnimalOptions = [
+  animais = [
     {
-      label: 'Bovinos',
-      value: 'Bovinos',
-      selected: false
+      id: 1,
+      titulo: 'Boi/Vaca',
+      imagem: 'assets/images/animais-grid-bovinos.png'
     },
     {
-      label: 'Suínos',
-      value: 'Suínos',
-      selected: false
+      id: 2,
+      titulo: 'Porco',
+      imagem: 'assets/images/animais-grid-suinos.png'
     },
     {
-      label: 'Ovinos',
-      value: 'Ovinos',
-      selected: false
+      id: 3,
+      titulo: 'Galinha/Peru',
+      imagem: 'assets/images/animais-grid-aves.png'
     },
     {
-      label: 'Caprinos',
-      value: 'Caprinos',
-      selected: false
+      id: 4,
+      titulo: 'Ovelha',
+      imagem: 'assets/images/animais-grid-ovinos.png'
     },
     {
-      label: 'Aves',
-      value: 'Aves',
-      selected: false
+      id: 5,
+      titulo: 'Cabra',
+      imagem: 'assets/images/animais-grid-caprinos.png'
     },
     {
-      label: 'Equinos',
-      value: 'Equinos',
-      selected: false
+      id: 6,
+      titulo: 'Abelhas',
+      imagem: 'assets/images/animais-grid-abelhas.png'
     },
     {
-      label: 'Piscicultura',
-      value: 'Piscicultura',
-      selected: false
+      id: 7,
+      titulo: 'Peixe',
+      imagem: 'assets/images/animais-grid-peixes.png'
     },
     {
-      label: 'Apicultura',
-      value: 'Apicultura',
-      selected: false
+      id: 8,
+      titulo: 'Coelhos',
+      imagem: 'assets/images/animais-grid-coelhos.png'
+    },
+    {
+      id: 9,
+      titulo: 'Cavalos',
+      imagem: 'assets/images/animais-grid-cavalos.png'
+    },
+    {
+      id: 10,
+      titulo: 'Patos',
+      imagem: 'assets/images/animais-grid-patos.png'
+    },
+    {
+      id: 11,
+      titulo: 'Outros',
+      imagem: 'assets/images/animais-grid-outros.png',
+      isOutros: true
     }
   ];
 
@@ -70,47 +79,5 @@ export class Producaoanimal implements AfterViewInit {
       top: 0,
       behavior: 'smooth'
     });
-  }
-
-  onTipoProducaoAnimalChange(event: any): void {
-
-    this.tipoProducaoAnimalSelecionado =
-      event.target.value;
-
-  }
-
-  get formularioValido(): boolean {
-
-    return (
-      this.tipoProducaoAnimalSelecionado.trim() !== '' &&
-      this.descricao.trim() !== '' &&
-      this.numeroAnimais !== null &&
-      this.numeroAnimais > 0
-    );
-
-  }
-
-  salvarItem(): void {
-
-    if (!this.formularioValido) {
-      return;
-    }
-
-    this.itensProducaoAnimal.push({
-      tipo: this.tipoProducaoAnimalSelecionado,
-      descricao: this.descricao,
-      quantidade: this.numeroAnimais
-    });
-
-    this.tipoProducaoAnimalSelecionado = '';
-    this.descricao = '';
-    this.numeroAnimais = null;
-
-  }
-
-  removerItem(index: number): void {
-
-    this.itensProducaoAnimal.splice(index, 1);
-
   }
 }

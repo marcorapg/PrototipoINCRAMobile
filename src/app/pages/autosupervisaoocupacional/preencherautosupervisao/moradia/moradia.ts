@@ -8,12 +8,14 @@ import { Pageheader } from '../../../../componentes/pageheader/pageheader';
 
 @Component({
   selector: 'app-moradia',
-  imports: [Pageheader, CommonModule, FormsModule, BrSelect, RouterLink],
+  imports: [Pageheader, CommonModule, FormsModule, RouterLink],
   templateUrl: './moradia.html',
   styleUrl: './moradia.css',
 })
 
 export class Moradia implements AfterViewInit {
+
+  esconderFotoMoradia = true;
 
   possuiMoradia = false;
 

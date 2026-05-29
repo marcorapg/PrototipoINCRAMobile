@@ -1,0 +1,125 @@
+<!-- animal-upload-grid.component.html -->
+
+<div class="upload-grid-page">
+
+    <!-- GRID -->
+    <div *ngIf="telaAtual === 'lista'">
+
+        <!-- HEADER -->
+        <div class="upload-grid-header">
+
+            <h1 class="upload-grid-title">
+                {{ titulo }}
+            </h1>
+
+            <p class="upload-grid-description">
+                {{ descricao }}
+            </p>
+
+        </div>
+
+        <!-- GRID -->
+        <div class="upload-grid-container">
+
+            <button *ngFor="let item of itens" class="upload-grid-card" type="button" (click)="abrirTelaUpload(item)">
+
+                <!-- CHECK -->
+                <div class="upload-grid-check" *ngIf="item.concluido">
+                    <i class="fas fa-check"></i>
+                </div>
+
+                <!-- IMAGEM -->
+                <img [src]="item.imagem" [alt]="item.titulo" class="upload-grid-image" />
+
+                <!-- TITULO -->
+                <div class="upload-grid-card-title">
+                    {{ item.titulo }}
+                </div>
+
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- UPLOAD -->
+    <div *ngIf="telaAtual === 'upload'">
+
+        <!-- HEADER -->
+        <div class="upload-photo-header">
+
+            <div class="upload-photo-header-info">
+
+                <h2 class="upload-photo-title">
+                    {{ itemSelecionado.titulo }}
+                </h2>
+
+                <p class="upload-photo-description">
+                    Tire uma foto deste item
+                </p>
+
+            </div>
+
+            <img [src]="itemSelecionado.imagem" [alt]="itemSelecionado.titulo" class="upload-photo-header-image" />
+
+        </div>
+
+        <!-- CAMPO OUTROS -->
+        <div class="upload-photo-field-group" *ngIf="itemSelecionado.isOutros">
+
+            <label class="upload-photo-label">
+                Nome do item
+            </label>
+
+            <input type="text" class="upload-photo-input" [(ngModel)]="nomeOutroItem" placeholder="Digite o nome" />
+
+        </div>
+
+        <!-- CARD FOTO -->
+        <label class="upload-photo-card">
+
+            <input type="file" accept="image/*" hidden (change)="selecionarArquivo($event)" />
+
+            <!-- FOTO -->
+            <img *ngIf="previewImagem" [src]="previewImagem" class="upload-photo-preview-image" alt="Preview" />
+
+            <!-- PLACEHOLDER -->
+            <div class="upload-photo-empty-state" *ngIf="!previewImagem">
+
+                <div class="upload-photo-icon">
+
+                    <i class="fas fa-camera"></i>
+
+                </div>
+
+                <div class="upload-photo-card-title">
+                    Toque para tirar a foto
+                </div>
+
+                <div class="upload-photo-card-subtitle">
+                    Ou escolha uma foto da galeria
+                </div>
+
+            </div>
+
+        </label>
+
+        <!-- BOTÕES -->
+        <div class="upload-photo-actions mt-3">
+
+            <button class="br-button secondary upload-photo-action-button" type="button" (click)="voltarLista()">
+                Cancelar
+            </button>
+
+            <button class="br-button primary upload-photo-action-button" type="button" [disabled]="
+          !arquivoSelecionado ||
+          (itemSelecionado.isOutros && nomeOutroItem.trim() === '')
+        " (click)="salvarArquivo()">
+                Salvar
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
