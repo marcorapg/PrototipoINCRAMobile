@@ -10,6 +10,8 @@ export interface UploadGridItem {
   arquivo?: File | null;
   previewImagem?: string | null;
   isOutros?: boolean;
+  numeroCabecas?: string;
+  areaPlantada?: string;
 }
 
 @Component({
@@ -29,6 +31,12 @@ export class Gridfotos {
   @Input()
   itens: UploadGridItem[] = [];
 
+  @Input()
+  isAnimal:boolean = false;
+
+  @Input()
+  isPlanta:boolean = false;
+
   telaAtual: 'lista' | 'upload' = 'lista';
 
   itemSelecionado!: UploadGridItem;
@@ -38,6 +46,10 @@ export class Gridfotos {
   previewImagem: string | null = null;
 
   nomeOutroItem = '';
+
+  numeroCabecas? = '';
+
+  areaPlantada? = '';
 
   abrirTelaUpload(item: UploadGridItem): void {
 
@@ -53,6 +65,14 @@ export class Gridfotos {
       item.isOutros
         ? ''
         : item.titulo;
+
+    this.numeroCabecas = this.isAnimal
+      ? item.numeroCabecas
+      : '';
+
+    this.areaPlantada = this.isPlanta
+      ? item.areaPlantada
+      : '';
 
     this.telaAtual = 'upload';
 
@@ -130,6 +150,9 @@ export class Gridfotos {
       this.itemSelecionado.concluido =
         true;
 
+      this.itemSelecionado.numeroCabecas = this.numeroCabecas;
+
+      this.itemSelecionado.areaPlantada = this.areaPlantada;
     }
 
     this.resetarTela();
@@ -151,6 +174,10 @@ export class Gridfotos {
     this.nomeOutroItem = '';
 
     this.telaAtual = 'lista';
+
+    this.numeroCabecas = '';
+
+    this.areaPlantada = '';
 
   }
 }
