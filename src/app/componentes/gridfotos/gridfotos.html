@@ -82,20 +82,44 @@
                 Número de cabeças
             </label>
 
-            <input type="text" class="upload-photo-input" [(ngModel)]="numeroCabecas" placeholder="Digite o número de cabeças deste tipo de animal" />
+            <input type="text" class="upload-photo-input" [(ngModel)]="numeroCabecas"
+                placeholder="Digite o número de cabeças deste tipo de animal" />
 
         </div>
 
-        <!-- CAMPO NUMERO DE CABEÇAS -->
+        <!-- CAMPO AREA PLATANTA -->
         <div class="upload-photo-field-group" *ngIf="isPlanta">
 
-            <label class="upload-photo-label">
-                Área plantada (ha)
-            </label>
+            <div class="row">
+                <div class="col-6">
+                    <label class="upload-photo-label">
+                        Tipo de unidade
+                    </label>
 
-            <input type="text" class="upload-photo-input" [(ngModel)]="areaPlantada" placeholder="Digite a área plantada em hectares" />
+                    <br-radio class=" mt-3" name="radio-group" value="pes" [checked]="tipoUnidadeLocal == 'pes'"
+                        (checkedChange)="onEstadoChangePes($event)">
+                        Pés
+                    </br-radio>
 
-        </div>            
+                    <br-radio class="ml-1" name="radio-group" value="hectares" [checked]="tipoUnidadeLocal === 'hectares'"
+                        (checkedChange)="onEstadoChangeHectares($event)">
+                        Hectares
+                    </br-radio>
+                </div>
+
+                <div class="col-6">
+                    <label class="upload-photo-label">
+                        Área plantada
+                    </label>
+
+                    <input type="text" class="upload-photo-input" [(ngModel)]="areaPlantada"
+                        placeholder="Digite a área plantada" />
+
+                </div>
+
+            </div>
+
+        </div>
 
         <!-- CARD FOTO -->
         <label class="upload-photo-card">

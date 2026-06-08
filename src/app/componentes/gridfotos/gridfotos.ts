@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { BrRadio } from '@govbr-ds/webcomponents-angular/standalone';
 
 export interface UploadGridItem {
   id: number;
@@ -11,12 +12,13 @@ export interface UploadGridItem {
   previewImagem?: string | null;
   isOutros?: boolean;
   numeroCabecas?: string;
+  tipoUnidade?: string;
   areaPlantada?: string;
 }
 
 @Component({
   selector: 'app-gridfotos',
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, BrRadio],
   templateUrl: './gridfotos.html',
   styleUrl: './gridfotos.css',
 })
@@ -32,10 +34,10 @@ export class Gridfotos {
   itens: UploadGridItem[] = [];
 
   @Input()
-  isAnimal:boolean = false;
+  isAnimal: boolean = false;
 
   @Input()
-  isPlanta:boolean = false;
+  isPlanta: boolean = false;
 
   telaAtual: 'lista' | 'upload' = 'lista';
 
@@ -48,6 +50,8 @@ export class Gridfotos {
   nomeOutroItem = '';
 
   numeroCabecas? = '';
+
+  tipoUnidadeLocal: string = 'pes';
 
   areaPlantada? = '';
 
@@ -69,6 +73,10 @@ export class Gridfotos {
     this.numeroCabecas = this.isAnimal
       ? item.numeroCabecas
       : '';
+
+    this.tipoUnidadeLocal = this.isPlanta
+      ? (item.tipoUnidade ?? 'pes')
+      : 'pes';
 
     this.areaPlantada = this.isPlanta
       ? item.areaPlantada
@@ -120,7 +128,9 @@ export class Gridfotos {
 
         arquivo: this.arquivoSelecionado,
 
-        previewImagem: this.previewImagem
+        previewImagem: this.previewImagem,
+
+        tipoUnidade: this.tipoUnidadeLocal
 
       };
 
@@ -152,6 +162,8 @@ export class Gridfotos {
 
       this.itemSelecionado.numeroCabecas = this.numeroCabecas;
 
+      this.itemSelecionado.tipoUnidade = this.tipoUnidadeLocal;
+
       this.itemSelecionado.areaPlantada = this.areaPlantada;
     }
 
@@ -177,7 +189,19 @@ export class Gridfotos {
 
     this.numeroCabecas = '';
 
+    this.tipoUnidadeLocal = 'pes';
+
     this.areaPlantada = '';
 
+  }
+
+  onEstadoChangePes(event: any): void {
+    if (event.detail)
+      this.tipoUnidadeLocal = 'pes';
+  }
+
+  onEstadoChangeHectares(event: any): void {
+    if (event.detail)
+      this.tipoUnidadeLocal = 'hectares';
   }
 }
