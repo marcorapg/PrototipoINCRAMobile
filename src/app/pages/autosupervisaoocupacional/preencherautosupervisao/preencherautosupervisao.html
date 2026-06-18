@@ -31,11 +31,7 @@
             MORADIA PRINCIPAL
           </h3>
 
-          <img
-            src="assets/images/moradia.png"
-            alt="Moradia Principal"
-            class="autosupervisao-ocupacional-card-image"
-          />
+          <img src="assets/images/moradia.png" alt="Moradia Principal" class="autosupervisao-ocupacional-card-image" />
 
         </div>
 
@@ -47,15 +43,16 @@
 
       <div class="autosupervisao-ocupacional-card-footer">
 
-        <span class="autosupervisao-ocupacional-status-text">
+        <span [hidden]="quantidadeMoradia > 0" class="autosupervisao-ocupacional-status-text">
           Não informada
         </span>
 
-        <button
-          class="br-button secondary autosupervisao-ocupacional-action-button"
-          type="button"
-          [routerLink]="['/autosupervisaoocupacional/preencherautosupervisao/moradia']"
-        >
+        <span [hidden]="quantidadeMoradia == 0" class="autosupervisao-ocupacional-status-text text-success">
+          Moradia informada
+        </span>
+
+        <button class="br-button secondary autosupervisao-ocupacional-action-button" type="button"
+          [routerLink]="['/autosupervisaoocupacional/preencherautosupervisao/moradia']">
           Informar
         </button>
 
@@ -78,11 +75,8 @@
             PRODUÇÃO ANIMAL
           </h3>
 
-          <img
-            src="assets/images/producao-animal.png"
-            alt="Produção Animal"
-            class="autosupervisao-ocupacional-card-image"
-          />
+          <img src="assets/images/producao-animal.png" alt="Produção Animal"
+            class="autosupervisao-ocupacional-card-image" />
 
         </div>
 
@@ -94,15 +88,12 @@
 
       <div class="autosupervisao-ocupacional-card-footer">
 
-        <span class="autosupervisao-ocupacional-status-text">
-          0 item(s) informados
+        <span class="autosupervisao-ocupacional-status-text" [class.text-success]="quantidadeAnimal > 0">
+          {{ quantidadeAnimal }} item(s) informado(s)
         </span>
 
-        <button
-          class="br-button secondary autosupervisao-ocupacional-action-button"
-          type="button"
-          [routerLink]="['/autosupervisaoocupacional/preencherautosupervisao/producaoanimal']"
-        >
+        <button class="br-button secondary autosupervisao-ocupacional-action-button" type="button"
+          [routerLink]="['/autosupervisaoocupacional/preencherautosupervisao/producaoanimal']">
           Adicionar
         </button>
 
@@ -125,11 +116,8 @@
             PRODUÇÃO AGRÍCOLA
           </h3>
 
-          <img
-            src="assets/images/producao-agricola.png"
-            alt="Produção Agrícola"
-            class="autosupervisao-ocupacional-card-image"
-          />
+          <img src="assets/images/producao-agricola.png" alt="Produção Agrícola"
+            class="autosupervisao-ocupacional-card-image" />
 
         </div>
 
@@ -141,15 +129,12 @@
 
       <div class="autosupervisao-ocupacional-card-footer">
 
-        <span class="autosupervisao-ocupacional-status-text">
-          0 item(s) informados
+        <span class="autosupervisao-ocupacional-status-text" [class.text-success]="quantidadePlanta > 0">
+          {{ quantidadePlanta }} item(s) informado(s)
         </span>
 
-        <button
-          class="br-button secondary autosupervisao-ocupacional-action-button"
-          type="button"
-          [routerLink]="['/autosupervisaoocupacional/preencherautosupervisao/producaoagricola']"
-        >
+        <button class="br-button secondary autosupervisao-ocupacional-action-button" type="button"
+          [routerLink]="['/autosupervisaoocupacional/preencherautosupervisao/producaoagricola']">
           Adicionar
         </button>
 
@@ -172,11 +157,7 @@
             BENFEITORIAS
           </h3>
 
-          <img
-            src="assets/images/benfeitorias.png"
-            alt="Benfeitorias"
-            class="autosupervisao-ocupacional-card-image"
-          />
+          <img src="assets/images/benfeitorias.png" alt="Benfeitorias" class="autosupervisao-ocupacional-card-image" />
 
         </div>
 
@@ -188,15 +169,12 @@
 
       <div class="autosupervisao-ocupacional-card-footer">
 
-        <span class="autosupervisao-ocupacional-status-text">
-          0 item(s) informados
+        <span class="autosupervisao-ocupacional-status-text" [class.text-success]="quantidadeBenfeitoria > 0">
+          {{ quantidadeBenfeitoria }} item(s) informado(s)
         </span>
 
-        <button
-          class="br-button secondary autosupervisao-ocupacional-action-button"
-          type="button"
-          [routerLink]="['/autosupervisaoocupacional/preencherautosupervisao/benfeitorias']"
-        >
+        <button class="br-button secondary autosupervisao-ocupacional-action-button" type="button"
+          [routerLink]="['/autosupervisaoocupacional/preencherautosupervisao/benfeitorias']">
           Adicionar
         </button>
 
@@ -219,11 +197,7 @@
             DOCUMENTOS
           </h3>
 
-          <img
-            src="assets/images/documentos.png"
-            alt="Documentos"
-            class="autosupervisao-ocupacional-card-image"
-          />
+          <img src="assets/images/documentos.png" alt="Documentos" class="autosupervisao-ocupacional-card-image" />
 
         </div>
 
@@ -235,15 +209,12 @@
 
       <div class="autosupervisao-ocupacional-card-footer">
 
-        <span class="autosupervisao-ocupacional-status-text">
-          0 item(s) informados
+        <span class="autosupervisao-ocupacional-status-text" [class.text-success]="quantidadeDocumentos > 0">
+          {{ quantidadeDocumentos }} item(s) informado(s)
         </span>
 
-        <button
-          class="br-button secondary autosupervisao-ocupacional-action-button"
-          type="button"
-          [routerLink]="['/autosupervisaoocupacional/preencherautosupervisao/documentos']"
-        >
+        <button class="br-button secondary autosupervisao-ocupacional-action-button" type="button"
+          [routerLink]="['/autosupervisaoocupacional/preencherautosupervisao/documentos']">
           Adicionar
         </button>
 
@@ -256,19 +227,13 @@
   <!-- BOTÕES -->
   <div class="autosupervisao-ocupacional-footer-actions">
 
-    <button
-      class="br-button secondary autosupervisao-ocupacional-footer-button"
-      type="button"
-      [routerLink]="['/autosupervisaoocupacional']"
-    >
+    <button class="br-button secondary autosupervisao-ocupacional-footer-button" type="button"
+      [routerLink]="['/autosupervisaoocupacional']">
       Voltar
     </button>
 
-    <button
-      class="br-button primary autosupervisao-ocupacional-footer-button"
-      type="button"
-      [routerLink]="['/autosupervisaoocupacional/preencherautosupervisao/revisar']"
-    >
+    <button class="br-button primary autosupervisao-ocupacional-footer-button" type="button"
+      [routerLink]="['/autosupervisaoocupacional/preencherautosupervisao/revisar']">
       Revisar e Enviar
     </button>
 

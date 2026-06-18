@@ -17,6 +17,12 @@ export class Preencherautosupervisao implements AfterViewInit {
     });
   }
 
+  quantidadeMoradia = Math.floor(Math.random() * 2);
+  quantidadeAnimal = Math.floor(Math.random() * 2);
+  quantidadePlanta = Math.floor(Math.random() * 2);
+  quantidadeBenfeitoria = Math.floor(Math.random() * 2);
+  quantidadeDocumentos = Math.floor(Math.random() * 2);
+
   // Variável que controla o estado de exibição
   scrimSucesso = false;
   abrirScrimSucesso() {
